@@ -32,16 +32,18 @@ class Password
 				$chap = new Crypt_CHAP_MSv1();
 				$chap->password = $this->password;
 				return bin2hex($chap->lmPasswordHash()); */
-			$this->passowrd = strtoupper(substr($this->passowrd, 0, 14));
-			$p1 = $this->LMhash_DESencrypt(substr($this->passowrd, 0, 7));
-			$p2 = $this->LMhash_DESencrypt(substr($this->passowrd, 7, 7));
+			$this->password = strtoupper(substr($this->password, 0, 14));
+			$p1 = $this->LMhash_DESencrypt(substr($this->password, 0, 7));
+			$p2 = $this->LMhash_DESencrypt(substr($this->password, 7, 7));
 
 			return strtoupper($p1.$p2);
+
 
 		}
 
 		public function LMhash_DESencrypt()
 		{
+
 			$key = array();
 			$tmp = array();
 			$len = strlen($this->passowrd);
@@ -74,7 +76,7 @@ class Password
             $chap->password = $this->password;
             return bin2hex($chap->ntPasswordHash());*/
 
-				$input = iconv('UTF-8', 'UTF-16LE', $this->passowrd );
+				$input = iconv('UTF-8', 'UTF-16LE', $this->password );
 				$MD4Hash = hash('md4', $input);
 				$NTLMHash = strtoupper($MD4Hash);
 				

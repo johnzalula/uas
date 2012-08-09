@@ -18,7 +18,7 @@ class userActions extends sfActions
 	}
 	public function executeShow(sfWebRequest $request)
 	{
-		$current_id = $this->getUser()->getAttribute('user_id');
+		$current_id = $this->getUser()->getAttribute('uid');
 		$requested_id= $request->getParameter('id');
 
 		if($current_id == $requested_id )
@@ -68,31 +68,45 @@ class userActions extends sfActions
 
 	public function executeChangepassword(sfWebRequest $request)
 	{
+		$user_id = $request->getParameter('user_id');
+		$user_email = $request->getParameter('user_email');
+
+
 		$this->form = new ChangePasswordForm();
-		$this->user = Doctrine::getTable('User')->find($this->getUser()->getAttribute('user_id'));
-		if($request->isMethod('post')){ // if the form is submitted
+		
+		
+		
+		if($request->isMethod('post') || $request->isMethod('put')){ // if the form is submitted
 
 			$this->form->bind($request->getParameter('changepassword'));
 			if ($this->form->isValid())
 			{
 				$pass_parameters = $request->getParameter('changepassword');
 				$password = new Password($pass_parameters['new_password']);
-				$current_password = new Password($pass_parameters['password']);
+				$current_password = $pass_parameters['password'];
 
-				if($this->user->checkPassword($current_password))
+				$uid = $this->getUser()->getAttribute('uid');
+				$user_email_local = $this->getUser()->getAttribute('first_name');
+
+			$user = UserTable::getInstance()->getUserByIdAndPassword($uid, $current_password);
+
+				if($user)
 				{           
-					$this->user->setPasswordObject($password);
-					$this->getUser()->setFlash('notice', "You have changed your password successfully");
+					$user->setPasswordObject($password);
+					$user->save();
+					$this->getUser()->setFlash('notice_success', true);
+					$this->redirect('user/show?id='.$user->id);
 				}
-				else
-				{
-					$this->getUser()->setFlash('notice', "Please type your existing password correctly");
-					$this->redirect('user/changepassword');
+				else {
+					$this->redirect('user/changepassword?user_id='.$user_id.'&user_email='.$user_email);
+				$this->getUser()->setFlash('user_change_failure', true);
 				}
-				$this->redirect('user/show?id='.$this->user->getId());
+
+				
 			}
-		} else { // not a post, just a get
+		 else { // not a post, just a get
 			//		$this->setTemplate('changepassword');
+			}
 		}
 
 	}

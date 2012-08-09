@@ -21,28 +21,75 @@ class Password
 			return $this->password;
 		}
 
-        public function getCryptHash()
-        {
-            return crypt($this->password,sfConfig::get('app_crypt_salt'));
+		public function getCryptHash()
+		{
+			return crypt($this->password,sfConfig::get('app_crypt_salt'));
+		}
+
+		public function getLmHash()
+		{
+			/*return "Crypt_CHAR_MSv1 hack";
+				$chap = new Crypt_CHAP_MSv1();
+				$chap->password = $this->password;
+				return bin2hex($chap->lmPasswordHash()); */
+			$this->passowrd = strtoupper(substr($this->passowrd, 0, 14));
+			$p1 = $this->LMhash_DESencrypt(substr($this->passowrd, 0, 7));
+			$p2 = $this->LMhash_DESencrypt(substr($this->passowrd, 7, 7));
+
+			return strtoupper($p1.$p2);
+
+		}
+
+		public function LMhash_DESencrypt()
+		{
+			$key = array();
+			$tmp = array();
+			$len = strlen($this->passowrd);
+			for($i=0; $i<7; ++$i)
+          $tmp[] = $i < $len ? ord($this->passowrd[$i]) : 0;
+			$key[] = $tmp[0] & 254;
+			$key[] = ($tmp[0]<< 7) | ($tmp[1] >> 1);
+			$key[] = ($tmp[1]<< 6) | ($tmp[1] >> 2);
+			$key[] = ($tmp[2]<< 5) | ($tmp[1] >> 3);
+			$key[] = ($tmp[3]<< 4) | ($tmp[1] >> 4);
+			$key[] = ($tmp[4]<< 3) | ($tmp[1] >> 5);
+			$key[] = ($tmp[5]<< 2) | ($tmp[1] >> 6);
+			$key[] = ($tmp[6]<< 1);	
+
+			$is = mcrypt_get_iv_size(MCRYPT_DES, MCRYPT_MODE_ECB);
+			$iv = mcrypt_create_iv($is, MCRYPT_RAND);
+
+			foreach($key as $k )
+				$key0 .=chr($k);
+
+			$LMHash = mcrypt_encrypt(MCRYPT_DES, $key0, "KGS!@...", MCRYPT_MODE_ECB, $iv);
+
+			return bin2hex($LMHash);
+		}
+
+		public function getNtHash()
+		{
+			/*return "Crypt_CHAP_MSv1 hack";
+            $chap = new Crypt_CHAP_MSv1();
+            $chap->password = $this->password;
+            return bin2hex($chap->ntPasswordHash());*/
+
+				$input = iconv('UTF-8', 'UTF-16LE', $this->passowrd );
+				$MD4Hash = hash('md4', $input);
+				$NTLMHash = strtoupper($MD4Hash);
+				
+				return $NTLMHash;
         }
 
-        public function getLmHash()
-        {
-			return "Crypt_CHAR_MSv1 hack";
-            $chap = new Crypt_CHAP_MSv1();
-            $chap->password = $this->password;
-            return bin2hex($chap->lmPasswordHash()); 
-        }
-        public  function getNtHash()
-        {
-			return "Crypt_CHAP_MSv1 hack";
-            $chap = new Crypt_CHAP_MSv1();
-            $chap->password = $this->password;
-            return bin2hex($chap->ntPasswordHash());
-        }
         public function getUnixHash()
         {
-            return crypt($this->password);
+				mt_srand((double)microtime()*1000000);
+				$salt = pack("cccc", mt_rand(), mt_rand(), mt_rand(), mt_rand());
+				$hash = base64_encode(pack("H*", sha1($this->password.$salt)). $salt);
+
+				return $hash;
+            
+				//return sha1($this->password);
         }
         
         private function generate()
@@ -60,3 +107,4 @@ class Password
         }
 }
 ?>
+

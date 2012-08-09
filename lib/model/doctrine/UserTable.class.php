@@ -2,6 +2,13 @@
 
 class UserTable extends Doctrine_Table
 {
+
+	
+	public static function getInstance()
+    {
+        return Doctrine_Core::getTable('User');
+    }
+
     static public $status_types = array (
         'activated' => 'Activated',
         'disactivated' => 'Disactivated',
@@ -51,4 +58,45 @@ class UserTable extends Doctrine_Table
          	return self::doSelect($criteria);
          	
 	}
+
+	public function getUserByIdAndPassword($uid, $userpassword)
+	{
+		$password_hash = crypt($userpassword, sfConfig::get('app_crypt_salt'));
+
+		$user = Doctrine_Query::create()
+                        ->from('User u')
+                        ->where('u.id=? AND crypt_password=?',
+                                    array($uid, $password_hash))
+                        ->fetchOne();
+
+        if ($user &&
+            $user->getId() == $uid && $user->getCryptPassword() == $password_hash ) {
+
+            return $user;
+        }
+
+        return null;
+	}
+
+	public function login($username, $password)
+    {
+			
+			$password_hash = crypt($password, sfConfig::get('app_crypt_salt'));
+			
+        $user = Doctrine_Query::create()
+                        ->from('User u')
+                        ->where('u.login=? AND u.crypt_password=?',
+                                    array($username, $password_hash))
+                        ->fetchOne();
+
+        if ($user &&
+            $user->getLogin() == $username && $user->getCryptPassword() == $password_hash ) {
+
+            return $user;
+        }
+
+        return null;
+    }
+
 }
+

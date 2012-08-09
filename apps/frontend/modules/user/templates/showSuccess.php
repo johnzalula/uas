@@ -1,61 +1,74 @@
+<?php if($sf_user->isAuthenticated()): ?>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="2">Account information for <?php echo $user->getFullName() ?></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Full name:</th>
-      <td><?php echo $user->getFullName() ?></td>
-    </tr>
-    <tr>
-      <th>Login:</th>
-      <td><?php echo $user->getLogin() ?></td>
-    </tr>
-    <tr>
-      <th>Status:</th>
-      <td><?php echo $user->getStatus() ?></td>
-    </tr>
-    <tr>
-      <th>Expires at:</th>
-      <td><?php echo $user->getExpiresAt() ?></td>
-    </tr>    
-    <tr>
-      <th colspan="2">Email</th>
-    </tr>     
-    <tr>
-      <th>Email address:</th>
-      <td><?php echo $user->getEmailAddress() ?></td>
-    </tr>
-    <tr>
-      <th>Email quota:</th>
-      <td><?php echo $user->getEmailQuota() ?></td>
-    </tr>
-    <tr>
-      <th colspan="2">Contact information</th>
-    </tr>    
-    <tr>
-      <th>Phone:</th>
-      <td><?php echo $user->getPhone() ?></td>
-    </tr>
-   <tr>
-      <th>Alternate email:</th>
-      <td><?php echo $user->getAlternateEmail() ?></td>
-    </tr>
-    <tr>
-<?php if($sf_user->hasFlash('generated_pass')):?>
-  <th><label>Password:</label></th>
-      <td><?php echo htmlentities($sf_user->getFlash('generated_pass')); ?>
-</td>
-	</tr>
-<?php endif;?>
-  </tbody>
-</table>
+<div class="userBox-container">
 
-<hr />
+<?php if ($sf_user->getFlash('notice_success', false) == true): ?>
+	<div class="loginError">
+		<div class="alert alert-success">
+			<a class="close" data-dismiss="alert">&times;</a>
+			You have <strong>Successfuly</strong> changed your password!
+		</div>
+	</div>
+<?php endif; ?>
 
-<a href="<?php echo url_for('user/edit?id='.$user->getId()) ?>">Edit</a> |
-<?php echo link_to('Change password','user/changepassword', array('query_string' => 'id='.$user->getId()))?> |
+	<div class="user-listBox">
+		<h3>User Detail Information</h3>
+		<div class="userDetail-actions">
+			<ul>
+				<li><a href="<?php echo url_for('user/edit?id='.$user->getId()) ?>">Edit</a></li>
+				<li>
+					<a href="<?php echo url_for('user/changepassword?user_id='.$user->getId().'&user_email='.$user->getEmailLocalPart()) ?>">Change password</a>
+<!--<?php echo link_to('Change password','change_user_password', array('user_id' => $user->getId(), 'user_email' => $user->getEmailLocalPart()))?>--></li>
+			</ul>
+		</div>
+		<div class="userInfo-Box">
+
+		<fieldset>
+			<legend>Account information</legend>
+			<div class="userList">
+				<ul>
+					<li><span class="userInfo">Full name:</span><span class="userData"><?php echo $user->getFullName() ?></span></li>
+					<li><span class="userInfo">Login:</span><span class="userData"><?php echo $user->getLogin() ?></span></li>
+					<li><span class="userInfo">Status:</span><span class="userData"><?php echo $user->getStatus() ?></span></li>
+					<li><span class="userInfo">Expires at:</span><span class="userData"><?php echo $user->getExpiresAt() ?></span></li>
+				</ul>
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Email Information</legend>
+			<div class="userList">
+				<ul>
+					<li><span class="userInfo">Email address:</span><span class="userData"><?php echo $user->getEmailAddress() ?></span></li>
+					<li><span class="userInfo">Email quota:</span><span class="userData"><?php echo $user->getEmailQuota() ?></span></li>
+				</ul>
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Contact Information</legend>
+			<div class="userList">
+				<ul>
+					<li><span class="userInfo">Phone No:</span><span class="userData"><?php echo $user->getPhone() ?></span></li>
+					<li><span class="userInfo">Alternate email:</span><span class="userData"><?php echo $user->getAlternateEmail() ?></span></li>
+				</ul>
+			</div>
+		</fieldset>
+
+
+	</div>
+	</div>
+</div>
+<?php else: ?>
+<div class="securedLayer">
+	<div class="loginError">
+		<div class="alert alert-error">
+			<a class="close" data-dismiss="alert">&times;</a>
+			This user is not <strong>Authorized</strong> to access this page!
+		</div>
+	</div>
+
+</div>
+<?php endif ?>
+
 

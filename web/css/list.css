@@ -1,0 +1,63 @@
+.user-list-cont {width:960px;}
+
+
+.userBox-container {padding:5px 5px 10px 5px;;border:0px solid #000;}
+.userProfile-cont {padding:15px;border:1px solid #fff;border:1px solid dodgerblue;background: url(../images/header-bg.png) repeat left top;-webkit-border-radius:5px 5px 5px 5px;-moz-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;-webkit-box-shadow: 0 0px 1px dodgerblue;
+	   -moz-box-shadow: 0 0px 1px dodgerblue;
+	        box-shadow: 0 0px 1px dodgerblue;}
+
+.userAvatar {float:left;border:0px solid #00f;}
+.userAvatar img {width:60px;height:60px;padding:3px;background:#fff;-webkit-border-radius:5px 5px 5px 5px;-moz-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;padding:5px;border:1px solid cornflowerblue;margin-right:8px;vertical-align:top;-webkit-box-shadow: 0 0px 1px black;
+	   -moz-box-shadow: 0 0px 1px black;
+	        box-shadow: 0 0px 1px black;}
+
+.editUser-profile {float:right;border:0px solid #f00;padding:5px;}
+
+.userProfile-detail {float:left;border:0px solid #000;}
+.userDetail {padding:4px;border:0px solid #f00;}
+.userDetail ul {list-style:none;margin:0px;}
+.userDetail ul li {padding:3px 0px;line-height:14px;}
+.userDetail ul li span.user_name { font-size:18px;color:black;letter-spacing:1px;text-shadow: 1px 1px 1px #000000, 0 1px 1px #fff;}
+.userDetail ul li span.user_text {padding-right:8px;font-size:11px;font-weight:bold;}
+.userDetail ul li span.result_text {padding-right:8px;font-size:11px;font-weight:bold;letter-spacing:1px;}
+
+
+.user-listBox {padding:0px;border:1px solid white;background:#fff;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;-webkit-box-shadow: 0 0px 2px dodgerblue;
+	   -moz-box-shadow: 0 0px 2px dodgerblue;
+	        box-shadow: 0 0px 2px dodgerblue;}
+.user-listBox h3 {border:1px solid dodgerblue;border-bottom:1px solid #fff;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;text-shadow: 0px 1px 2px #000;letter-spacing:1px;
+	color: #fff;text-align:left;font-size:13px;padding:6px 10px;background:#0088cc;
+ background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(top, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);}
+
+
+.userDetail-actions {margin:none;padding:0px 30px;color:#444;background: #dedede url('../images/column-header-bg.gif') repeat-x top;border:1px solid dodgerblue;border-bottom:none;-webkit-box-shadow: 0 2px 2px -2px black;
+	   -moz-box-shadow: 0 2px 2px -2px black;
+	        box-shadow: 0 2px 2px -2px black;}
+
+.userDetail-actions ul {margin:0;list-style:none;border:0px solid #00f;padding:5px 0px;}
+.userDetail-actions ul li {display:inline-block;padding:2px 2px;font-size:12px;color:#000;text-shadow: 0px 1px 2px #888;letter-spacing:1px;}
+.userDetail-actions ul li a {padding:0px 8px 0px 0px;font-size:11px;color:#000;text-shadow: 0px 1px 2px #eee;border-right:1px solid #aaa;}
+.userDetail-actions ul li:last-child a {border-right:none;}
+.userDetail-actions ul li:first-child img {margin-right:5px;vertical-align:top;}
+
+.userDetail-actions ul li a:hover {text-decoration:none;color:#990000;}
+.userDetail-actions ul li img {vertical-align:top;margin-left:5px;}
+
+.userInfo-Box {padding:10px 15px;;border:1px solid dodgerblue;}
+.userInfo-Box fieldset {border:1px solid dodgerblue;margin:4px 0px 10px 0px;padding:10px 15px;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;background:#f3f5f4;}
+.userInfo-Box fieldset legend {padding:3px 8px;letter-spacing:1px;font-size:12px;font-weight:bold;background:#a2b29b;border:1px solid dodgerblue;-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;color:#fff;text-shadow: 0px 1px 2px #000;}
+
+.userList {}
+.userList ul {list-style:none;margin:0px;}
+.userList ul li {border-bottom:0px solid #ddd;line-height:16px;padding:4px 10px;}
+.userList ul li span.userInfo {float:left;text-align:right;width:100px;padding:0px 0px;border:0px solid #f00;font-weight:bold;font-size:11px;}
+.userList ul li span.userData {font-size:11px;padding:0px 10px;border:0px solid #00f;color:#000;text-shadow: 0px 1px 2px #eee;letter-spacing:1px;}
+
+

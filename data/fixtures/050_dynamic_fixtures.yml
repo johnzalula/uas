@@ -1,12 +1,12 @@
 User:
-<?php for ($i = 100; $i <= 199; $i++): ?>
+<?php for ($i = 100; $i <= 110; $i++): ?>
   user_<?php echo $i ?>:
     DomainName:      <?php echo ($i % 2) ? "ju\n" : "mu\n" ?>
     name:               <?php echo "N" . $i ."\n" ?>
     fathers_name:       <?php echo "F" . $i ."\n" ?>
     grand_fathers_name: <?php echo "G" . $i ."\n" ?>
     login:              <?php echo "log" . $i ."\n" ?>
-    gid:                2000
+    gid:                50000
     uid:                <?php echo 2000 + $i . "\n" ?>
     alternate_email:    <?php echo $i ."@somewhere.com\n" ?>
     email_local_part:   <?php echo "email" . $i ."\n" ?>
@@ -16,7 +16,7 @@ User:
 <?php endfor; ?>
 
 UserIdentification:
-<?php for ($i = 100; $i <= 199; $i++): ?>
+<?php for ($i = 100; $i <= 110; $i++): ?>
   useridentification_a<?php echo $i ?>:
     identification: 2000/<?php echo $i."\n" ?>
     User:        user_<?php echo $i."\n" ?>
@@ -28,7 +28,7 @@ UserIdentification:
 
 
 UnixAccount:
-<?php for ($i = 100; $i <= 199; $i++): ?>
+<?php for ($i = 100; $i <= 110; $i++): ?>
   unix_account_s<?php echo $i ?>:
     hostname:       <?php echo ($i % 2) ? "server.ju.edu.et\n" : "server.mu.edu.et\n" ?>
     User:        user_<?php echo $i."\n" ?>
@@ -41,7 +41,7 @@ UnixAccount:
 <?php endfor; ?>
 
 SambaAccount:
-<?php for ($i = 100; $i <= 199; $i++): ?>
+<?php for ($i = 100; $i <= 110; $i++): ?>
   samba_account<?php echo $i ?>:
     hostname:       <?php echo ($i % 2) ? "smb1.ju.edu.et\n" : "smb1.mu.edu.et\n" ?>
     User:        user_<?php echo $i."\n" ?>
@@ -49,7 +49,7 @@ SambaAccount:
 <?php endfor; ?>
 
 FtpAccount:
-<?php for ($i = 100; $i <= 199; $i++): ?>
+<?php for ($i = 100; $i <= 110; $i++): ?>
   ftp_account<?php echo $i ?>:
     User:        user_<?php echo $i."\n" ?>
 

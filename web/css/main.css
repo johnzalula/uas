@@ -1,0 +1,224 @@
+html {background: url(../images/login-gb.png) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+		-moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;}
+body {}
+
+
+.clearFix {clear:both;}
+
+/*******************************/
+.topSeparator {height:28px;width:100%;margin:0 auto;}
+
+.topMenu-cont {background:#333;margin:0 auto;padding:1px 0px;width:100%;min-width:780px;-webkit-box-shadow: 0 2px 1px -1px black;
+	   -moz-box-shadow: 0 2px 1px -1px black;
+	        box-shadow: 0 2px 1px -1px black;	border-bottom:1px solid white;z-index:3;position:fixed;top:0;left:0;}
+
+.topMenu {border:0px solid #0ff;padding:1px 0px 1px 0px;margin:0 auto;width:780px;}
+.miniNav {float:left;margin:0px;padding:2px 15px;width:300px;border:0px solid #f00;}
+.miniNav ul {list-style:none;border:0px solid #fff;margin:0px;}
+.miniNav ul li {display:inline-block;}
+.miniNav ul li a {padding:2px 6px;text-decoration:none;color:#fff;font-size:11px;text-shadow: 1px 1px 1px #000000;}
+
+
+.profileNav {float:right;margin:0px;padding:1px 15px;border:0px solid #f00;}
+.profileNav ul {position:relative;text-align:right;list-style:none;border:0px solid #fff;margin:0px;}
+.profileNav ul li {display:inline-block;padding:2px 0px;border:0px solid #fff;}
+.profileNav ul li a.userProfile {padding:2px 15px 0px 5px;text-decoration:none;color:#fff;font-size:11px;border:0px solid #fff;text-shadow: 1px 1px 1px #000000;}
+
+.profileNav ul li a.userProfile img {width:20px; height:15px;margin:0px 5px 0px 5px;vertical-align:top;}
+
+.profileNav ul li a.language {padding:1px 15px 0px 5px;text-decoration:none;color:#fff;font-size:11px;background:url('../images/downarrow.png') no-repeat;background-position: 56px 2px;border:0px solid #fff;text-shadow: 1px 1px 1px #000000;}
+
+.profileNav ul li ul.profileBox{ display:none;width:180px;top:25px;right:57px; position:absolute;background:Ivory;padding:5px 10px;-webkit-box-shadow: 0 2px 6px black;
+	   -moz-box-shadow: 0 2px 6px black;
+	        box-shadow: 0 2px 6px black;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
+
+.profileNav ul li ul.profileBox li:laset-child {-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
+.profileNav ul li ul.profileBox li {display:block;padding:3px 5px;right:0;}
+.profileNav ul li ul.profileBox li  img {float:left;text-align:left;}
+
+.profileNav ul li ul.langauge {display:none;top:0px;left:0px;background:HoneyDew ;}
+.profileNav ul li ul.language li {display:block;}
+
+/******************************/
+.header_container 
+{
+	background-color: #2a7004;  /* Firefox 3.6+ */ background: -moz-radial-gradient(circle, #56ac28, #2a7004); /* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */ background: -webkit-gradient(radial, center center, 0, center center, 360, from(#56ac28), to(#2a7004)); /* Safari 5.1+, Chrome 10+ */ background: -webkit-radial-gradient(circle, #56ac28, #2a7004);
+	min-width:780px;
+	padding:5px 0px;
+
+	border-bottom:1px solid white;
+	-webkit-box-shadow: 0 2px 1px -1px black;
+	   -moz-box-shadow: 0 2px 1px -1px black;
+	        box-shadow: 0 2px 1px -1px black;
+}
+.header 
+{
+	
+	width:780px;
+	margin:0 auto;
+	padding:4px 0px 4px 0px;
+	border:0px solid #f00;
+}
+
+.logo-box 
+{
+	padding:5px 5px 2px 5px;
+	width:350px;
+	border:0px solid #f00;
+	float:left;
+}
+.logo-box .logo {padding:2px 5px 2px 5px;}
+.logo-box .logo:after { clear:both;}
+.logo-box .logo div {margin:0px 10px 0px 0px;padding:5px 0px;float:left;}
+.logo-box .logo div img {border:0px solid #fff;height:40px;width:34px;vertical-align:top;margin-top:-4px;}
+.logo-box .logo span.title {border:0px solid #ff0;line-height:24px;margin:0px 0px 5px 0px;font-size:15px;font-weight:bold;padding:3px 0px;color:#fff;text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);letter-spacing:3px;
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+        text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 2px 0px #777, 0px 2px 0px #666, 0px 2px 0px #555, 0px 3px 0px #444, 0px 2px 0px #333, 0px 4px 3px #001135;
+}
+.logo-box .logo span.sub-title {line-height:18px;padding:8px 0px;margin:5px 0px 0px 0px;font-weight:bold;font-size:13px;letter-spacing:1px;color:#fff;text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear; text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 2px 0px #777, 0px 2px 0px #666, 0px 2px 0px #555, 0px 2px 0px #444, 0px 2px 0px #333, 0px 2px 2px #001135;}
+.logo-box span.logout-link {padding:1px 2px;}
+.logo-box span.logout-link a {padding:1px 3px;border-right:0px solid #f00;font-size:11px;font-weight:bold;color:navy;}
+.logo-box span.logout-link a:hover {color:firebrick;text-decoration:none;}
+
+/***************************************/
+
+.user-profile { padding:10px;border:0px solid #fff;width:300px;float:right;}
+.profileBox {border:0px solid #00f;}
+
+/***********************/
+
+.wrapperBox {background: url(../images/login-gb.png) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+		-moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;width:780px;margin:1px auto 50px auto;border:1px solid cornflowerblue;
+	-webkit-box-shadow: 0 1px 5px black;
+	   -moz-box-shadow: 0 1px 5px black;
+	        box-shadow: 0 1px 5px black;border-top:none;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
+.wrapper {/*background:LemonChiffon;*/padding:10px;}
+
+
+/*****************************/
+
+/**************************/
+
+
+.menu{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+font:13px/27px Arial,sans-serif;
+color:#3366cc;
+height:30px;
+background:#2D2D2D;
+}
+.menu a:hover{
+background-color:#676767;
+color:#CCCCCC;
+}
+.menu a{
+text-decoration:none;
+padding:6px 8px 7px;
+color:#CCCCCC;
+outline:none;
+}
+.menu ul{
+list-style:none;
+margin:0;
+padding:0 0 0 10px;
+}
+.menu ul li{
+padding:0;
+float:left;
+}
+.menu ul li ul li{
+padding:0;
+float:none;
+margin:0 0 0 0px;
+width:100%;
+}
+.menu ul li ul{
+position:absolute;
+border:1px solid #f00;
+/*box-shadow*/
+-webkit-box-shadow:0 1px 5px #CCCCCC;
+   -moz-box-shadow:0 1px 5px #CCCCCC;
+        box-shadow:0 1px 5px #CCCCCC;
+margin-top:-1px;
+display:none;
+padding:0px 16px 0px 0;
+-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;
+}
+.active ul{
+display:block !important;
+}
+.single ul{
+display:block !important;
+}
+.active a{
+background-color:white;
+border:1px solid #C3D1EC;
+border-bottom:0;
+/*box-shadow*/
+-webkit-box-shadow:0 -1px 5px #CCCCCC;
+   -moz-box-shadow:0 -1px 5px #CCCCCC;
+        box-shadow:0 -1px 5px #CCCCCC;
+display:block;
+height:29px;
+padding:0 8px 0 8px;
+position:relative;
+z-index:1;
+color:#3366CC;
+}
+/*Styling for the link of the current page*/
+.current a{
+background-color:#2D2D2D;
+border-top:2px solid #DD4B39;/*red ribbon at top*/
+border-bottom:0;
+display:block;
+height:25px;
+padding:0 8px 0 8px;
+position:relative;
+z-index:1;
+color:#FFFFFF;
+font-weight:bold;
+}
+.active a:hover{
+background-color:white;
+color:#3366CC;
+}
+.active ul a:hover{
+background-color:#e4ebf8;
+}
+.active ul a{
+border:0 !important;
+/*box-shadow*/
+-webkit-box-shadow:0 0 0 #CCCCCC;
+   -moz-box-shadow:0 0 0 #CCCCCC;
+        box-shadow:0 0 0 #CCCCCC;
+border:0;
+width:100%;
+}
+.arrow{
+border-color:#C0C0C0 transparent white;
+border-style:solid dashed dashed;
+margin-left:5px;
+position:relative;
+top:15px;
+}
+.mid-line{
+background-color:#FFF;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;
+border-top:1px solid #e5e5e5;
+font-size:0;
+}
+
+
+

@@ -87,6 +87,7 @@ class User extends BaseUser
 		}
 		
 		// linking a one-on-one sfGuardUser
+		$this->setGid('50000');
 		$sfguard_user = $this->getSfGuardUser();
 		$sfguard_user->setUsername($this->getLogin());
 		$sfguard_user->setIsActive(true);

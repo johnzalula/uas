@@ -6,17 +6,25 @@ class ChangePasswordForm extends BaseForm
   {
 	unset($this['created_at'], $this['updated_at']);
 	
-    $this->setWidgets(array(
+   /* $this->setWidgets(array(
     'password'             =>new sfWidgetFormInputPassword(),
     'new_password'         =>new sfWidgetFormInputPassword(),
     'confirm_new_password' =>new sfWidgetFormInputPassword(),
-    ));
+    ));*/
+
+
+		$this->widgetSchema['password'] = new sfWidgetFormInputPassword(array('always_render_empty' => false ), array('class' => 'span3 roundBox', 'placeholder' => 'Enter Current Password'));
+
+		$this->widgetSchema['new_password'] = new sfWidgetFormInputPassword(array('always_render_empty' => false ), array('class' => 'span3 roundBox', 'placeholder' => 'Enter New Password'));
+
+		$this->widgetSchema['confirm_new_password'] = new sfWidgetFormInputPassword(array('always_render_empty' => false ), array('class' => 'span3 roundBox', 'placeholder' => 'Enter Confirm New Password'));
+
     
     //labels
     $this->widgetSchema->setLabels(array(
-    'password'              => 'Your Current Password',
-    'new_password'          => 'Your New Password',
-    'confirm_new_password'  => 'Confirm Your New Password',
+    'password'              => 'Current Password:',
+    'new_password'          => 'New Password:',
+    'confirm_new_password'  => 'Confirm New Password:',
     ));
     //Validators
     $this->validatorSchema['password'] = new sfValidatorString(array('required' => true));
@@ -41,3 +49,4 @@ class ChangePasswordForm extends BaseForm
     $this->widgetSchema->setNameFormat('changepassword[%s]');  
   }
 }
+

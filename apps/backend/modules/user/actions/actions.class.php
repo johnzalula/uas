@@ -58,16 +58,16 @@ class userActions extends autoUserActions
     // Set the password
     $password = new Password();
 	$this->user->setPasswordObject($password);
-
+	
     // Flash message
     $generated_pass = $password->getPassword();
+	 $this->user->save();
     $this->getUser()->setFlash('generated_pass', $generated_pass);
     $this->getUser()->setFlash('notice', "User password has been reset");
 
     // Redirect the user back to the user's page
     $this->redirect('user/ListShow?id='.$this->user->getId());
   }
-
 
   public function executeListExtend(sfWebRequest $request)
   {

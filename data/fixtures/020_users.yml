@@ -6,7 +6,7 @@ User:
     grand_fathers_name: W
     login:              eyuelg
     password:           password
-    gid:                2000
+    gid:                50000
     uid:                2000
     alternate_email:    eyuel@yahoo.com
     email_local_part:   eyuel.gessese
@@ -18,7 +18,7 @@ User:
     fathers_name:       Chala
     grand_fathers_name: Z
     login:              shimelsc
-    gid:                2000
+    gid:                50000
     uid:                2001
     alternate_email:    shimels@yahoo.com
     email_local_part:   shimels.chala
@@ -30,7 +30,7 @@ User:
     fathers_name:       K
     grand_fathers_name: Z
     login:              habtomk
-    gid:                2000
+    gid:                50000
     uid:                2003
     alternate_email:    habtom@yahoo.com
     email_local_part:   habtom.k
@@ -42,7 +42,7 @@ User:
     fathers_name:       S
     grand_fathers_name: G
     login:              yemanes
-    gid:                2000
+    gid:                50000
     uid:                2004
     alternate_email:    yemane@yahoo.com
     email_local_part:   yemane.s

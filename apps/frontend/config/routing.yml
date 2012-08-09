@@ -1,4 +1,98 @@
 # default rules
+how_user:
+  url: /user/show
+  class: sfDoctrineRoute
+  options:
+    model: User
+    type: object
+  param: { module: user, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+edit_user_password:
+  url: /user/edit
+  class: sfDoctrineRoute
+  options:
+    model: User
+    type: object
+  param: { module: user, action: edit }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+change_user_password:
+  url: /user/changepassword
+  class: sfDoctrineRoute
+  options:
+    model: User
+    type: object
+  param: { module: user, action: changepassword }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+comment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               Comment
+    module:              comment
+    prefix_path:         comment
+    column:              id
+    with_wildcard_routes: true
+
+
+change_language:
+  url:   /change_language
+  param: 
+    module: language
+    action: changeLanguage
+
+ftp_account:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               FtpAccount
+    module:              ftp_account
+    prefix_path:         ftp_account
+    column:              id
+    with_wildcard_routes: true
+    
+samba_account:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               SambaAccount
+    module:              samba_account
+    prefix_path:         samba_account
+    column:              id
+    with_wildcard_routes: true
+    
+unix_account:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               UnixAccount
+    module:              unix_account
+    prefix_path:         unix_account
+    column:              id
+    with_wildcard_routes: true
+
+email_alias:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               EmailAlias
+    module:              emailalias
+    prefix_path:         emailalias
+    column:              id
+    with_wildcard_routes: true
+
+user_identification:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               UserIdentification
+    module:              useridentification
+    prefix_path:         useridentification
+    column:              id
+    with_wildcard_routes: true
+
 user:
   class: sfDoctrineRouteCollection
   options:
@@ -9,6 +103,25 @@ user:
     with_wildcard_routes: true
 
 
+domainname:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               Domainname
+    module:              domainname
+    prefix_path:         domainname
+    column:              id
+    with_wildcard_routes: true
+login:
+  url: /session
+  param: { module: session, action: login }
+
+signin:
+  url: /signin
+  param: { module: session, action: dologin }
+
+logout:
+  url: /signout
+  param: { module: session, action: logout }
 
 homepage:
   url:   /

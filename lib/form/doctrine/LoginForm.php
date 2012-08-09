@@ -4,11 +4,11 @@ class LoginForm extends BaseForm
 {
   public function configure()
   {
-    $this->setWidgets(array(
-    'login'             =>new sfWidgetFormInputText(),
-    'password'         =>new sfWidgetFormInputPassword(),
-    ));
-    
+    $this->widgetSchema['login'] = new sfWidgetFormInputText(array(), array('class' => 'span3 roundBox', 'placeholder' => 'Username or email'));
+
+		$this->widgetSchema['password'] = new sfWidgetFormInputPassword(array('always_render_empty' => false ), array('class' => 'span3 roundBox', 'placeholder' => 'Password'));
+
+
     $this->widgetSchema->setLabels(array(
     'login'              => 'Username',
     'password'          => 'Password',
@@ -23,6 +23,6 @@ class LoginForm extends BaseForm
 		new uasValidatorPasswordIsCorrect(array('login' => 'credentials[login]'))
 		));
     
-    $this->widgetSchema->setNameFormat('credentials[%s]');  
+    $this->widgetSchema->setNameFormat('credentials[%s]');   
   }
 }

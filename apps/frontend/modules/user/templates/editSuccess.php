@@ -26,7 +26,14 @@
 	</div>
 <?php endif; ?>
 
-
+<?php if ($sf_user->getFlash('saved_user_success', false) == true): ?>
+	<div class="loginError">
+		<div class="alert alert-success">
+			<a class="close" data-dismiss="alert">&times;</a>
+			Your settings saved successfully!
+		</div>
+	</div>
+<?php endif; ?>
 
 <div class="user-listBox">
 		<h3>Edit User</h3>

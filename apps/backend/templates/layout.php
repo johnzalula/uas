@@ -18,8 +18,10 @@
 					$(".languageList").slideDown('fast');
 					$(".languageList").removeClass('closed');
 					$(".languageList").addClass('opened');
-					$(this).parent().css('background', 'ivory');
-					$(this).parent().css('color', 'black');
+					$('.languageList li a').css('color', 'dodgerblue');
+					$('.languageList li a:hover').css('color', 'red');
+					$(this).parent().css('background', 'LightGoldenRodYellow ');
+					$(this).parent().css('color', '#f00');
 	
 				}
 				else {
@@ -58,7 +60,7 @@
 							<li><?php echo link_to('Amharic', 'session/am') ?></li>	
 						</ul>					
 					</li>
-					<li><a id="showProfile" class="userProfile dropdown-toggle" href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?></a>
+					<li><a id="showProfile" class="userProfile " href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?></a>
 						<ul class="profileBox closed" id="">
 							<li><a href=""><img src="<?php echo image_path('contact') ?>"></a></li>
 							<li><a href="">haftom</a></li>
@@ -85,7 +87,7 @@
 				</div><!-- end of logo -->
 			</div><!-- end of logo-box -->
 			<?php if($sf_user->isAuthenticated()): ?>
-			<div class="user-profile-cont">
+			<!--<div class="user-profile-cont">
 				<div class="userBox">
 					<div class="userAvatar">
 						<img src="<?php echo image_path('avatar') ?> ">
@@ -99,7 +101,7 @@
 					<div class="clearFix"></div>			
 
 				</div>
-			</div>
+			</div>-->
 		<?php endif; ?>
 			<div class="clearFix"></div>
 		</div><!-- end of header -->
@@ -144,14 +146,14 @@
 		</ul>
 		</div>
 			<div class="sf_admin_sideLogo">
-				<h3>Sponsored By</h3>
-				<div class="sf_admin_sideLogo-content">
+				<h3>Sponsored By<span id="minimizeVlir" class="closed"><img src="<?php echo image_path('down')  ?>"></span></h3>
+				<div class="sf_admin_sideLogo-vlir-content">
 					<img class="vlir" src="<?php echo image_path('vliruos') ?>">
 				</div>
 			</div>
 			<div class="sf_admin_sideLogo">
-				<h3>Powerd By</h3>
-				<div class="sf_admin_sideLogo-content">
+				<h3>Powerd By<span id="minimizeSymf" class="closed"><img src="<?php echo image_path('down')  ?>"></span></h3>
+				<div class="sf_admin_sideLogo-symf-content">
 					<img class="symfony" src="<?php echo image_path('symfony_button') ?> " width="80" height="24">
 				</div>
 			</div>

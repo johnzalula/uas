@@ -28,7 +28,7 @@ body {margin:0;padding:0;}
 {
 	background-color: #2a7004;  /* Firefox 3.6+ */ background: -moz-radial-gradient(circle, #56ac28, #2a7004); /* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */ background: -webkit-gradient(radial, center center, 0, center center, 360, from(#56ac28), to(#2a7004)); /* Safari 5.1+, Chrome 10+ */ background: -webkit-radial-gradient(circle, #56ac28, #2a7004);
 	min-width:960px;
-	padding:5px 0px;
+	padding:3px 0px;
 
 	border-bottom:1px solid white;
 	-webkit-box-shadow: 0 2px 1px -1px black;
@@ -40,13 +40,13 @@ body {margin:0;padding:0;}
 	
 	width:960px;
 	margin:0 auto;
-	padding:4px 0px 4px 0px;
+	padding:2px 0px 2px 0px;
 	border:0px solid #f00;
 }
 
 .logo-box 
 {
-	padding:5px 5px 2px 5px;
+	padding:4px 5px 2px 5px;
 	width:350px;
 	border:0px solid #f00;
 	float:left;
@@ -90,17 +90,17 @@ body {margin:0;padding:0;}
 .wrapper {border:0px solid #00f;}
 
 .left-container {width:190px;float:left;}
-.leftBar  {padding:15px 5px 0px 5px;border:0px solid #f00;margin:0px;}
+.leftBar  {padding:10px 5px 0px 5px;border:0px solid #f00;margin:0px;}
 
 .right-container {width:200px;float:right;}
 
 
 .content-container {float:left;margin:none;width:81%;min-width:740px;border:0px solid #f00;}
-.content {padding:15px 5px 20px 5px;}
+.content {padding:10px 5px 20px 5px;}
 
 /************ Accordion Menu ************/
 
-.sf_admin_sideLogo {padding:0px 5px;text-align:center;margin-bottom:10px;}
+.sf_admin_sideLogo {padding:0px 5px;text-align:center;margin-bottom:8px;}
 .sf_admin_sideLogo h3 {-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;text-shadow: 0px 1px 2px #000;
 	color: #fff;text-align:left;font-size:13px;padding:4px 8px;background:#0088cc;
  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
@@ -111,11 +111,18 @@ body {margin:0;padding:0;}
   background-image: linear-gradient(top, #0088cc, #0044cc);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);}
-.sf_admin_sideLogo-content {background:#fff;padding:10px 0px;border:1px solid cornflowerblue;-webkit-border-radius: 0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
 
-.sf_admin_sideLogo-content img.vlir {height:65px;width:140px;background:#efefef;padding:4px; border:solid 1px cornflowerblue;}
+.sf_admin_sideLogo h3 span {float:right;padding:2px 5px;margin-top:5px;cursor:pointer;}
+.sf_admin_sideLogo h3 span img { vertical-align:top;}
 
-.sf_admin_sideLogo-content img.symfony {width:80%;height:25px;background:#efefef;padding:4px; border:solid 1px cornflowerblue;}
+
+.sf_admin_sideLogo-vlir-content {background:#fff;padding:8px 0px;border:1px solid cornflowerblue;-webkit-border-radius: 0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;display:none;}
+
+.sf_admin_sideLogo-symf-content {background:#fff;padding:8px 0px;border:1px solid cornflowerblue;-webkit-border-radius: 0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;display:none;}
+
+.sf_admin_sideLogo-vlir-content img.vlir {height:65px;width:140px;background:#efefef;padding:4px; border:solid 1px cornflowerblue;}
+
+.sf_admin_sideLogo-symf-content img.symfony {width:80%;height:25px;background:#efefef;padding:4px; border:solid 1px cornflowerblue;}
 
 
 .accordion,
@@ -141,7 +148,7 @@ ul.accordion li a {
 	margin:0px;
 	min-width: 110px;
 	font-size:11px;
-	padding: 2px 6px 6px 6px;
+	padding: 2px 6px 5px 6px;
 	height: 30px;
 	text-shadow: 0px 1px 2px #000;
 	color: #fff;
@@ -226,7 +233,7 @@ ul.accordion li a:before {
 	content: '';
 	width: 24px;
 	height: 20px;
-	margin: 2px 8px;
+	margin: 1px 8px;
 
 	background-repeat: no-repeat;
 	background-image: url(../img/icons.png);
@@ -390,7 +397,7 @@ ul.accordion li:target ul.sub-menu {
 .sf_admin_list table thead {margin:none;}
 .sf_admin_list table thead tr {border-bottom:1px solid cornflowerblue;border-right:1px solid cornflowerblue;margin:none;}
 .sf_admin_list table thead tr th {text-align:left;padding:8px 10px;background: #dedede url('../images/grid-hrow.gif') repeat-x bottom;color: #002077;
-	text-shadow: 0px 0px 1px #777;letter-spacing:1px;font-size:12px;letter-spacing:1px;margin:none;}
+	text-shadow: 0px 0px 1px #777;letter-spacing:1px;font-size:12px;letter-spacing:1px;margin:none;}user
 .sf_admin_list table thead tr th 
 .sf_admin_list table thead tr th a {text-align:left;background:#699C4D;
 	color: #002077;
@@ -401,7 +408,7 @@ ul.accordion li:target ul.sub-menu {
 .sf_admin_list table thead tr th.sf_admin_text a:hover {color:#990000;text-decoration:none; }
 
 .sf_admin_list table thead tr th a:hover {text-decoration:none;}
-.sf_admin_list table thead tr th#sf_admin_list_batch_actions {text-align:left;width:15px;margin:none;padding:0px 0px;text-align:center;border-right:0px solid #ddd;}
+.sf_admin_list table thead tr th#sf_admin_list_batch_actions {text-align:left;width:15px;margin:none;paduserding:0px 0px;text-align:center;border-right:0px solid #ddd;}
 .sf_admin_list table thead tr th#sf_admin_list_th_actions {text-align:center;width:100px;padding:5px 10px;border-left:0px solid #f00;}
 
 .sf_admin_list table tfoot {color: #444;
@@ -435,7 +442,7 @@ ul.accordion li:target ul.sub-menu {
   background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
   background-image: -o-linear-gradient(top, #0088cc, #0044cc);
   background-image: linear-gradient(top, #0088cc, #0044cc);
-  background-repeat: repeat-x;
+  background-repeat: repeat-x;user
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
   border-color: #0044cc #0044cc #002a80;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -629,35 +636,29 @@ ul.accordion li:target ul.sub-menu {
 
 
 
-
-
-
-
-
-
-.profileNav {float:right;margin:0px;padding:1px 15px;border:0px solid #f00;}
-.profileNav ul {position:relative;text-align:right;list-style:none;border:0px solid #fff;margin:0px;}
+.profileNav {float:right;margin:0px 30px 0px 0px;padding:1px 10px;border:0px solid #f00;}
+.profileNav ul {position:relative;text-align:right;list-style:none;border:0px solid #fff;margin:0px 100px 0px 0px;}
 .profileNav ul li {color:#fff;display:inline-block;padding:2px 0px;border:0px solid #fff;}
 .profileNav ul li a.userProfile {padding:2px 15px 0px 5px;text-decoration:none;color:#fff;font-size:11px;border:0px solid #fff;text-shadow: 1px 1px 1px #000000;}
 
 .profileNav ul li a.userProfile img {width:20px; height:15px;margin:0px 5px 0px 5px;vertical-align:top;}
 
 .profileNav ul li a.userLanguage {padding:2px 5px; border:0px solid #fff;font-size:11px;}
-.profileNav ul li a {color:#fff;font-size:11px;}
-.profileNav ul li a:hover {text-decoration:none;color:#ff0;}
+.profileNav ul li a {color:dodgerblue;font-size:11px;z-index:3;position:relative;}
+.profileNav ul li a:hover, .profileNav ul li a.active  {text-decoration:none;color:#f00;}
 
 
 .profileNav ul li a.userLanguage:hover {text-decoration:none;}
 
-.profileNav ul li ul.languageList {padding-top:6px;list-style:none;background:Ivory;position:absolute;float:right;width:100px;padding-bottom:5px;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;color:#000;webkit-box-shadow: 0 2px 6px -1px black;
-	   -moz-box-shadow: 0 2px 6px -1px black;
-	        box-shadow: 0 2px 6px -1px black;display:none;}
+.profileNav ul li ul.languageList {padding-top:6px;list-style:none;background:LightGoldenRodYellow;position:absolute;float:right;width:100px;padding-bottom:5px;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;color:#000;webkit-box-shadow: 0 4px 8px -3px black;
+	   -moz-box-shadow: 0 4px 8px -3px black;
+	        box-shadow: 0 4px 8px -3px black;display:none;}
 
-.profileNav ul li ul.languageList li {display:block;padding:2px 8px;text-align:left;color:#000;}
+.profileNav ul li ul.languageList li {display:block;padding:2px 8px;text-align:left;color:dodgerblue;}
 .profileNav ul li ul.languageList li:first-child a {padding-top:4px;}
 
-.profileNav ul li ul.languageList li a {color:#000;font-size:11px;}
-.profileNav ul li ul.languageList li a:hover {text-decoration:none;}
+.profileNav ul li ul.languageList li a {font-size:11px;}
+.profileNav ul li ul.languageList li a:hover {color:#f00;text-decoration:none;}
 
 .profileNav ul li ul.profileBox{ display:none;width:180px;top:25px;right:57px; position:absolute;background:Ivory;padding:5px 10px;-webkit-box-shadow: 0 2px 6px black;
 	   -moz-box-shadow: 0 2px 6px black;

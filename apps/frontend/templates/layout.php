@@ -32,15 +32,17 @@
 				return false;
 			});*/
 
-            $('#showLanguage').click(function(){
+           $('#showLanguage').click(function(){
 				
 				if($(".languageList").hasClass('closed')){
 	
 					$(".languageList").slideDown('fast');
 					$(".languageList").removeClass('closed');
 					$(".languageList").addClass('opened');
-					$(this).parent().css('background', 'ivory');
-					$(this).parent().css('color', 'black');
+					$('.languageList li a').css('color', 'dodgerblue');
+					$('.languageList li a:hover').css('color', 'red');
+					$(this).parent().css('background', 'LightGoldenRodYellow ');
+					$(this).parent().css('color', '#f00');
 	
 				}
 				else {
@@ -70,16 +72,18 @@
 			</div>
 			
 			<div class="profileNav">
+				<?php if($sf_user->isAuthenticated()): ?>
 				<ul>
 					<li><a id="showLanguage" class="userLanguage" href="">Language</a>
-						<ul class="languageList closed">							
-							<li><a href="">Tigrigna</a></li>
-							<li><a href="">Amharik</a></li>
-							<li><a href="">English</a></li>
+						<ul class="languageList closed">	
+							<li><a href="">English</a></li> 
+							<li><a href="">Tigrigna</a></li>  
+							<li><a href="">Amharic</a></li>	
 						</ul>					
+					</li>				
 					</li>
-				<?php if($sf_user->isAuthenticated()): ?>
-					<li><a id="showProfile" class="userProfile dropdown-toggle" href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('full_name') ?></a>
+				
+					<li><a id="showProfile" class="userProfile" href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('full_name') ?></a>
 						<ul class="profileBox closed" id="">
 							<li><a href=""><img src="<?php echo image_path('contact') ?>"></a></li>
 							<li><a href="">haftom</a></li>

@@ -2,14 +2,16 @@
 <?php include_javascripts_for_form($form) ?>
 
 
-<form action="<?php echo url_for('user/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
-<?php if (!$form->getObject()->isNew()): ?>
-<input type="hidden" name="sf_method" value="put" />
-<?php endif; ?>
+<form class="form-horizontal-box" action="<?php echo url_for('user/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 
-		<div id="hiddeninputs">
-			 <?php echo $form->renderHiddenFields(false) ?>
-		</div>
+<?php if (!$form->getObject()->isNew()): ?>
+	<div id="hiddeninputs">
+		<input type="hidden" name="sf_method" value="put" />
+	</div>
+<?php endif; ?>
+<div id="hiddeninputs">
+    <?php echo $form->renderHiddenFields(false) ?>
+</div>
 
 		<?php echo $form->renderGlobalErrors() ?>
 		<div class="userInfo-Box">

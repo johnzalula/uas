@@ -46,28 +46,6 @@
 					<li><a href="https://mail.mu.edu.et">MU Mail</a></li>
 				</ul>
 			</div>
-			
-			<div class="profileNav">
-				<ul>
-					<li><a class="language" href="">Language</a>
-						<ul class="langauge">							
-							<li><a href="">Tigrigna</a></li>
-							<li><a href="">Amharik</a></li>
-							<li><a href="">English</a></li>
-						</ul>					
-					</li>
-				<?php if($sf_user->isAuthenticated()): ?>
-					<li><a id="showProfile" class="userProfile dropdown-toggle" href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('full_name') ?></a>
-						<ul class="profileBox closed" id="">
-							<li><a href=""><img src="<?php echo image_path('contact') ?>"></a></li>
-							<li><a href="">haftom</a></li>
-							<li><a href="">hagos</a></li>
-						</ul>
-					</li>
-					<li><?php echo link_to('Logout', 'session/logout') ?></li>
-					<?php endif; ?>
-				</ul>
-			</div>
 
 			<div class="clearFix"></div>
 		</div>

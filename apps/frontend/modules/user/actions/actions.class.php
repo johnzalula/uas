@@ -40,20 +40,30 @@ class userActions extends sfActions
 		if($current_id == $requested_id )
 		{ 
 			$this->forward404Unless($user = Doctrine::getTable('User')->find($request->getParameter('id')), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-			$this->form = new UserForm($user);
+			$this->form = new FrontendUserForm($user);
 		}
 		else
 		{       
 			$this->redirect('user/edit?id='.$current_id);
 		}
+		
+		
 	}
 	public function executeUpdate(sfWebRequest $request)
 	{
-		$this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
+		/*$this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
 		$this->forward404Unless($user = Doctrine::getTable('User')->find($request->getParameter('id')), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
 		$this->form = new FrontendUserForm($user);
 		$this->processForm($request, $this->form);
-		$this->setTemplate('edit');
+		$this->setTemplate('edit');*/
+
+		$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    $this->forward404Unless($user = Doctrine_Core::getTable('User')->find(array($request->getParameter('id'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+    $this->form = new FrontendUserForm($user);
+
+    $this->processForm($request, $this->form);
+
+    $this->setTemplate('edit');
 	}
 
 	protected function processForm(sfWebRequest $request, sfForm $form)
@@ -62,6 +72,8 @@ class userActions extends sfActions
 		if ($form->isValid())
 		{
 			$user = $form->save();
+			
+			$this->getUser()->setFlash('saved_user_success', true);
 			$this->redirect('user/edit?id='.$user->getId());
 		}
 	}

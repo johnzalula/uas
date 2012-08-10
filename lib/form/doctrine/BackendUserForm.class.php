@@ -19,8 +19,30 @@ class BackendUserForm extends UserForm
 			$this['nt_password'], $this['lm_password'], $this['crypt_password'], $this['unix_password'],
 			$this['email_local_part'],
 			$this['gid'], $this['uid'],
-			$this['domainname_id']
+			$this['domainname_id'],
+			$this['expires_at']
 			); 
+		$this->widgetSchema['name'] = new sfWidgetFormInputText(array(), array('class' => 'span3', 'placeholder'=>'Enter Name'));
+		$this->widgetSchema['fathers_name'] = new sfWidgetFormInputText(array(), array('class' => 'span3', 'placeholder'=>'Enter Fathers Name'));
+		$this->widgetSchema['grand_fathers_name'] = new sfWidgetFormInputText(array(), array('class' => 'span3', 'placeholder'=>'Enter Grand Fathers Name'));
+		$this->widgetSchema['phone'] = new sfWidgetFormInputText(array(), array('class' => 'span3', 'placeholder'=>'Enter Phone No'));
+		$this->widgetSchema['alternate_email'] = new sfWidgetFormInputText(array(), array('class' => 'span3', 'placeholder'=>'Enter Alternative Mail'));
+
+
+		$this->widgetSchema->setLabels(array(
+			'name' => 'Name:',			
+			'fathers_name' => 'Father Name:',			
+			'grand_fathers_name' => 'Grand Father Name:',			
+			'phone' => 'Phon No:',			
+			'status' => 'Status:',			
+			'Alternate_main' => 'Alternative Mail:',			
+			'email_quota' => 'Email Quota:',
+			'title' => 'Title:',	
+			'avatar_file' => 'Avatar:',			
+			'type_of_employment' => 'Employment Type:',			
+			'employee_status' => 'Employee Status:',
+			'description' => 'Description:'
+			));
 
 		if (!$this->isNew()) {   // Embeding only when editing 
 			$user = $this->getObject();
@@ -79,3 +101,4 @@ class BackendUserForm extends UserForm
 		parent::bind($taintedValues, $taintedFiles);    
 	}
 }
+

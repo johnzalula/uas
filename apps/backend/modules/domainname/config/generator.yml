@@ -14,7 +14,7 @@ generator:
       actions: ~
       fields:  
       list:    
-        title: Domainname list
+        title: Domain Name list
         batch_actions: {}
         display: [name, UserCount] 
         object_actions: {}
@@ -22,4 +22,5 @@ generator:
         class: false
       form:    ~
       edit:    ~
-      new:     ~
+      new:     
+        title: New Domain Name

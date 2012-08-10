@@ -12,5 +12,16 @@ class UserIdentificationForm extends BaseUserIdentificationForm
 {
   public function configure()
   {
+		unset($this['created_at'], $this['updated_at']);
+
+
+		$this->widgetSchema['user_id'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User')),
+				array('class' => 'span4'
+				));
+
+		$this->widgetSchema->setLabels(array(
+			'identification' => 'User Identification:',			
+			'user_id' => 'User:'
+				));
   }
 }

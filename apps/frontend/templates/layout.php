@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>User Administration System</title>
+<title>MU - User Administration System</title>
     <link rel="shortcut icon" href="/mu-logo.ico" />
 	<?php use_stylesheet('main.css') ?>
    <?php include_javascripts() ?>
@@ -11,7 +11,7 @@
 
 <script>
         $('document').ready(function(){
-            $('#showProfile').click(function(){
+         /*   $('#showProfile').click(function(){
 				
 				if($(".profileBox").hasClass('closed')){
 	
@@ -26,6 +26,28 @@
 					$(".profileBox").slideUp('fast');
 					$(".profileBox").removeClass('opened');
 					$(".profileBox").addClass('closed');
+					$(this).parent().css('background', '#333');
+				}
+
+				return false;
+			});*/
+
+            $('#showLanguage').click(function(){
+				
+				if($(".languageList").hasClass('closed')){
+	
+					$(".languageList").slideDown('fast');
+					$(".languageList").removeClass('closed');
+					$(".languageList").addClass('opened');
+					$(this).parent().css('background', 'ivory');
+					$(this).parent().css('color', 'black');
+	
+				}
+				else {
+					
+					$(".languageList").slideUp('fast');
+					$(".languageList").removeClass('opened');
+					$(".languageList").addClass('closed');
 					$(this).parent().css('background', '#333');
 				}
 
@@ -49,8 +71,8 @@
 			
 			<div class="profileNav">
 				<ul>
-					<li><a class="language" href="">Language</a>
-						<ul class="langauge">							
+					<li><a id="showLanguage" class="userLanguage" href="">Language</a>
+						<ul class="languageList closed">							
 							<li><a href="">Tigrigna</a></li>
 							<li><a href="">Amharik</a></li>
 							<li><a href="">English</a></li>

@@ -24,23 +24,37 @@ body {}
 
 .profileNav {float:right;margin:0px;padding:1px 15px;border:0px solid #f00;}
 .profileNav ul {position:relative;text-align:right;list-style:none;border:0px solid #fff;margin:0px;}
-.profileNav ul li {display:inline-block;padding:2px 0px;border:0px solid #fff;}
+.profileNav ul li {color:#fff;display:inline-block;padding:2px 0px;border:0px solid #fff;}
 .profileNav ul li a.userProfile {padding:2px 15px 0px 5px;text-decoration:none;color:#fff;font-size:11px;border:0px solid #fff;text-shadow: 1px 1px 1px #000000;}
 
 .profileNav ul li a.userProfile img {width:20px; height:15px;margin:0px 5px 0px 5px;vertical-align:top;}
 
-.profileNav ul li a.language {padding:1px 15px 0px 5px;text-decoration:none;color:#fff;font-size:11px;background:url('../images/downarrow.png') no-repeat;background-position: 56px 2px;border:0px solid #fff;text-shadow: 1px 1px 1px #000000;}
+.profileNav ul li a.userLanguage {padding:2px 5px; border:0px solid #fff;font-size:11px;}
+.profileNav ul li a {color:#fff;font-size:11px;}
+.profileNav ul li a:hover {text-decoration:none;color:#000;}
+
+
+.profileNav ul li a.userLanguage:hover {text-decoration:none;}
+
+.profileNav ul li ul.languageList {padding-top:6px;list-style:none;background:Ivory;position:absolute;float:right;width:100px;padding-bottom:5px;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;color:#000;webkit-box-shadow: 0 2px 6px -1px black;
+	   -moz-box-shadow: 0 2px 6px -1px black;
+	        box-shadow: 0 2px 6px -1px black;display:none;}
+
+.profileNav ul li ul.languageList li {display:block;padding:2px 8px;text-align:left;color:#000;}
+.profileNav ul li ul.languageList li:first-child a {padding-top:4px;}
+
+.profileNav ul li ul.languageList li a {color:#000;font-size:11px;}
+.profileNav ul li ul.languageList li a:hover {text-decoration:none;}
 
 .profileNav ul li ul.profileBox{ display:none;width:180px;top:25px;right:57px; position:absolute;background:Ivory;padding:5px 10px;-webkit-box-shadow: 0 2px 6px black;
 	   -moz-box-shadow: 0 2px 6px black;
 	        box-shadow: 0 2px 6px black;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
 
-.profileNav ul li ul.profileBox li:laset-child {-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
+.profileNav ul li ul.profileBox li:last-child {-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
 .profileNav ul li ul.profileBox li {display:block;padding:3px 5px;right:0;}
 .profileNav ul li ul.profileBox li  img {float:left;text-align:left;}
 
-.profileNav ul li ul.langauge {display:none;top:0px;left:0px;background:HoneyDew ;}
-.profileNav ul li ul.language li {display:block;}
+
 
 /******************************/
 .header_container 

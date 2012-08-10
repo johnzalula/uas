@@ -16,12 +16,14 @@ generator:
         user_id:
             label: User
       list:
-        max_per_page: 5
+        max_per_page: 10
         display: [identification, user_fullname]    
         title: User identification
-      filter:  ~
+      filter: 
+        display: [identification, user_id]
       form:    ~
       edit:    
         title: Edit user Identification
       new:
         title: Add a new user Identification
+

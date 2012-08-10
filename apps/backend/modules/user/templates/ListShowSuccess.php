@@ -9,17 +9,22 @@
 	<?php include_partial('user/flashes') ?>
 
 	<div id="sf_admin_header">
-		<p><b>Actions</b> > > 
-			<a href="<?php echo url_for('user/edit?id='.$user->getId()) ?>">Edit</a> | 
-			 <a href="<?php echo url_for('user/listDelete?id='.$user->getId()) ?>">Delete</a> | 
-			<a href="" onclick="window.print();return false;">print version</a>  | 
-			<a href="<?php echo url_for('user/resetpassword?id='.$user->getId()); ?>">Reset Password</a> |
-			<a href="">Extend</a>
-
-		</p> 
+		<ul>
+			<li><a href="<?php echo url_for('user/index') ?>"><img src="<?php echo image_path('arrow_left') ?>"> Back</a><li>
+			<li>Actions<img src="<?php echo image_path('next') ?>"></li>
+			<li><a href="<?php echo url_for('user/edit?id='.$user->getId()) ?>">Edit</a></li>
+			<li><a href="<?php echo url_for('user/listDelete?id='.$user->getId()) ?>">Delete</a></li>
+			<li><a href="" onclick="window.print();return false;">Print version</a></li>
+			<li><a href="<?php echo url_for('user/resetpassword?id='.$user->getId()); ?>">Reset Password</a></li>
+			<li><a href="<?php echo url_for('') ?>">Extend</a></li>
+		</ul>
 	</div>
 
+<div id="sf_admin_wrapper">
 	<div id="sf_admin_content">
+		<div class="sf_admin_user">
+		<fieldset>
+			<legend>User Account Detail</legend>
 		<table>
 			<tr>
 				<td><label>Status</label></td>
@@ -60,8 +65,10 @@
 				</tr>
 			<?php endif; ?>
 		</table>
+		</fieldset>
 		
-		<div> <h3> FTP Accounts </h3> 
+		<fieldset>
+		<legend>FTP Accounts </legend> 
 			<table>
 				<tr>
 					<th>Upload Bandwidth</th>
@@ -81,9 +88,10 @@
 					</tr>
 				<?php endforeach; ?>
 			</table>
-		</div>
+		</fieldset>
 
-		<div><h3> Samba Accounts </h3>
+		<fieldset>
+		<legend> Samba Accounts </legend>
 			<table>
 				<tr>
 					<th>Hostname</th>
@@ -95,9 +103,10 @@
 					</tr>
 					<?php } ?>
 				</table>
-			</div>
+			</fieldset>
 
-			<div><h3> Unix Accounts </h3> 
+			
+			<fieldset><legend> Unix Accounts </legend> 
 				<table>
 					<tr>
 						<th>Unix Host Name</th>
@@ -110,10 +119,13 @@
 						</tr>
 					<?php endforeach; ?>
 				</table>
-			</div>
+			</fieldset>
+		</div>
+	</div>
 
 		</div>
 		<div id="sf_admin_footer">
 		</div>
 	</div>
+
 

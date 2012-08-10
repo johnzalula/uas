@@ -11,7 +11,7 @@ default:
 
   stylesheets:    [main.css, bootstrap.css, bootstrap-responsive.css, docs.css, login.css, list.css]
 
-  javascripts:    [prototype.js, bootstrap.js, bootstrap.min.js, jquery.js, jquery-1.6.1.min.js, jquery.google_menu.js]
+  javascripts:    [prototype.js, bootstrap.js, bootstrap.min.js, jquery.js, jquery-1.6.1.min.js, jquery.google_menu.js, toggleSpan.js]
 
 
   has_layout:     true

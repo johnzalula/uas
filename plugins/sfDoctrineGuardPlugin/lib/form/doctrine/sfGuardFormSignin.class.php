@@ -15,5 +15,8 @@ class sfGuardFormSignin extends BasesfGuardFormSignin
    */
   public function configure()
   {
+		$this->widgetSchema['username'] = new sfWidgetFormInputText(array(), array('class' => 'span3 roundBox', 'placeholder' => 'Username '));
+
+		$this->widgetSchema['password'] = new sfWidgetFormInputPassword(array('always_render_empty' => false ), array('class' => 'span3 roundBox', 'placeholder' => 'Password'));
   }
 }

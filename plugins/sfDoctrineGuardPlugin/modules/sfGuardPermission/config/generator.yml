@@ -15,6 +15,9 @@ generator:
         title: Permission list
         display: [=name, description, created_at, updated_at]
 
+      filter: 
+        display: [name, users_list, groups_list]
+
       edit:
         title: Editing Permission "%%name%%"
 

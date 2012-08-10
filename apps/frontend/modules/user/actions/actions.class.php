@@ -34,13 +34,13 @@ class userActions extends sfActions
 	}
 	public function executeEdit(sfWebRequest $request)
 	{
-		$current_id = $this->getUser()->getAttribute('user_id');
+		$current_id = $this->getUser()->getAttribute('uid');
 		$requested_id= $request->getParameter('id');
 
 		if($current_id == $requested_id )
 		{ 
 			$this->forward404Unless($user = Doctrine::getTable('User')->find($request->getParameter('id')), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-			$this->form = new FrontendUserForm($user);
+			$this->form = new UserForm($user);
 		}
 		else
 		{       

@@ -9,9 +9,10 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [admin.css, print: { media: print }]
+  stylesheets:    [admin.css, print: { media: print }, bootstrap.css, bootstrap-responsive.css]
 
-  javascripts:    []
+  javascripts:    [prototype.js, jquery.js, jquery-1.6.1.min.js ]
+
 
   has_layout:     true
   layout:         layout

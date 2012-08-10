@@ -54,7 +54,8 @@ class sessionActions extends sfActions
   public function executeLogout(sfWebRequest $request)
   {
     $this->getUser()->setAuthenticated(false);
-    $this->getUser()->clearCredentials();
+		$this->getUser()->clearCredentials();
+		$this->getResponse()->setCookie('autologin', 0, 0);
 
     $this->getUser()->resetUserHistory();
 

@@ -22,7 +22,7 @@ generator:
         login:
           label: Login Name
       list:
-        max_per_page: 5
+        max_per_page: 10
         object_actions:
             show : ~
             toggle_status : ~

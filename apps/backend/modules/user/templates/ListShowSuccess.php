@@ -27,7 +27,7 @@
 			<legend>User Account Detail</legend>
 		<table>
 			<tr>
-				<td><label>Status</label></td>
+				<td><label><?php echo __('Status') ?></label></td>
 				<td><b><?php echo $user->getStatus(); ?></b></td>
 			</tr>
 			<tr>

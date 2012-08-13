@@ -32,7 +32,7 @@
 		<div class="loginBox">
 			<div class="loginForm">
 				<h3>Sign In</h3>       
-				<form class="well" action="<?php echo url_for('session/dologin'); ?>" method="post">
+				<form name="loginForm" class="well" action="<?php echo url_for('session/dologin'); ?>" method="post">
 					<div id="hiddeninputs">
 							<input type="hidden" name="sf_method" value="put" />
 						</div>

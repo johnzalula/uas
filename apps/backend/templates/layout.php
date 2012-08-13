@@ -1,6 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>User Administration System</title>
@@ -10,6 +10,13 @@
    <?php include_stylesheets() ?>
 
 <script>
+
+	function setFocused()
+	{
+		document.getElementById("signin_username").focus();
+
+	}  
+
 	$('document').ready(function(){
             $('#showLanguage').click(function(){
 				
@@ -37,7 +44,7 @@
         });
         </script>
 </head>
-<body>
+<body onload="setFocused();">
 
 	<div class="topMenu-cont">
 		<div class="topMenu">
@@ -55,9 +62,9 @@
 				<ul>
 					<li><a id="showLanguage" class="userLanguage" href="">Language</a>
 						<ul class="languageList closed">	
-							<li><?php echo link_to('English', 'session/en') ?> </li> 
-							<li><?php echo link_to('Tigrigna', 'session/tig') ?></li>  
-							<li><?php echo link_to('Amharic', 'session/am') ?></li>	
+							<li><a href="<?php echo url_for('session/en') ?>"><?php echo __('English') ?></a> </li> 
+							<li><a href="<?php echo url_for('session/tig') ?>"><?php echo __('Tigrigna') ?></a></li>  
+							<li><a href="<?php echo url_for('session/am') ?>"><?php echo __('Amharic') ?></a></li>	
 						</ul>					
 					</li>
 					<li><a id="showProfile" class="userProfile " href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?></a>
@@ -120,7 +127,7 @@
 				<a href="#one">User Administration<span><img src="<?php echo image_path('downarr') ?> "></span></a>
 
 				<ul class="sub-menu">
-					<li ><?php echo link_to('Users', '@user') ?></li>
+					<li ><a href="<?php echo url_for('@user') ?>"><?php echo __('User') ?></a></li>
 					<li><?php echo link_to('User Identifications', '@user_identification') ?></li>
 					<li><?php echo link_to('Groups', '@sf_guard_group') ?></li>
 					<li><?php echo link_to('Permissions', '@sf_guard_permission') ?></li>

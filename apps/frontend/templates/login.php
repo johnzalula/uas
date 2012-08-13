@@ -10,31 +10,14 @@
    <?php include_stylesheets() ?>
 
 <script>
-        $('document').ready(function(){
-            $('#showProfile').click(function(){
-				
-				if($(".profileBox").hasClass('closed')){
-	
-					$(".profileBox").slideDown('fast');
-					$(".profileBox").removeClass('closed');
-					$(".profileBox").addClass('opened');
-					$(this).parent().css('background', 'ivory');
-					$(this).parent().css('color', 'black');
-				}
-				else {
-					
-					$(".profileBox").slideUp('fast');
-					$(".profileBox").removeClass('opened');
-					$(".profileBox").addClass('closed');
-					$(this).parent().css('background', '#333');
-				}
+	function setFocused()
+	{
+		document.getElementById("credentials_login").focus();
 
-				return false;
-			});
-        });
-        </script>
+	}       
+</script>
 </head>
-<body>
+<body onload="setFocused();">
 
 	<div class="topMenu-cont">
 		<div class="topMenu">

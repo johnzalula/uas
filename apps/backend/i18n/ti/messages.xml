@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="ti" datatype="plaintext" original="messages" date="2009-03-23T09:25:06Z" product-name="messages">
+  <file source-language="EN" target-language="ti" datatype="plaintext" original="messages" date="2012-08-10T22:20:57Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
-        <source>About UAS</source>
-        <target>ብዛዕባ ዩአስ </target>
+        <source>English</source>
+        <target/>
       </trans-unit>
       <trans-unit id="2">
-        <source>Full feed</source>
-        <target>ብዛዕባ ዩአስ</target>
+        <source>Tigrigna</source>
+        <target/>
       </trans-unit>
       <trans-unit id="3">
-        <source>UAS Documents</source>
-        <target>ብዛዕባ ዩአስ</target>
+        <source>Amharic</source>
+        <target/>
       </trans-unit>
       <trans-unit id="4">
-        <source>Become a Member</source>
-        <target>ብዛዕባ ዩአስ</target>
+        <source>User</source>
+        <target/>
       </trans-unit>
       <trans-unit id="5">
         <source>User </source>
-        <target>ብዛዕባ ዩአስ</target>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Status</source>
+        <target/>
       </trans-unit>
     </body>
   </file>

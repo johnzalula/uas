@@ -4,6 +4,7 @@
   <file original="global" source-language="en" datatype="plaintext">
     <header />
     <body>
+		<!-- Menu -->
       <!-- Actions -->
       <trans-unit>
         <source>New</source>

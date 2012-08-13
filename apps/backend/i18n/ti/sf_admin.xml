@@ -5,6 +5,11 @@
     <header />
     <body>
       <!-- Actions -->
+		
+		<trans-unit>
+			<source>Tigrigna</source>
+			<target>ስታተስ</target>
+		</trans-unit>
       <trans-unit>
         <source>New</source>
         <target>ሓድሽ</target>

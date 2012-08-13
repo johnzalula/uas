@@ -9,6 +9,15 @@
    <?php include_javascripts() ?>
    <?php include_stylesheets() ?>
 
+<style>
+		.caret {height:7px;}
+		.showMenu {width:100px;top:26px;position:absolute;display:none;border:1px solid #f00;}
+		ul.user-cont {list-style:none;background:indianred;width:100px;text-align:left;margin:0px;color:#000;}
+		ul.user-cont li {color:black;display:block;text-align:left;padding:3px;}
+		ul.user-cont li a {color:#000;}
+		ul.user-cont li a:hover {text-decoration:none;}
+	</style>
+
 <script>
         $('document').ready(function(){
          /*   $('#showProfile').click(function(){
@@ -34,6 +43,7 @@
 
            $('#showLanguage').click(function(){
 				
+					//$('.showMenu').show();
 				if($(".languageList").hasClass('closed')){
 	
 					$(".languageList").slideDown('fast');

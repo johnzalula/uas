@@ -79,7 +79,8 @@ all:
 #    calendar_web_dir:       /sf/calendar
 #
 #    # Helpers included in all templates by default
-    standard_helpers:       [Partial, Cache, I18N]
+    standard_helpers:       [Partial, Cache, I18N, Date]
+    i18n:                   true
 #
 #    # Activated modules from plugins or from the symfony core
     enabled_modules:        [default, sfGuardAuth, sfGuardUser, sfGuardGroup, sfGuardPermission]

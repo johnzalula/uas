@@ -98,20 +98,34 @@ class userActions extends sfActions
 				$current_password = $pass_parameters['password'];
 
 				$uid = $this->getUser()->getAttribute('uid');
-				$user_email_local = $this->getUser()->getAttribute('first_name');
+				$email_local_part = $this->getUser()->getAttribute('email_local_part');
 
 			$user = UserTable::getInstance()->getUserByIdAndPassword($uid, $current_password);
 
 				if($user)
-				{           
-					$user->setPasswordObject($password);
-					$user->save();
-					$this->getUser()->setFlash('notice_success', true);
-					$this->redirect('user/show?id='.$user->id);
+				{        
+
+					$current_pass = new Password($current_password);
+					if($user->checkPassword($current_pass)) {  
+
+						$user->setPasswordObject($password);
+						$user->save();
+						$changed_pass = $password->getPassword();
+						$this->getUser()->setAttribute('changed_password', $changed_pass);
+						$this->getUser()->setFlash('notice_success', true);
+						$this->redirect('user/show?id='.$user->id);
+
+					} else {
+
+							$this->getUser()->setFlash('current_password_failure', true);
+							$this->redirect('user/changepassword?user_id='.$user_id.'&user_mail='.$email_local_part);
+				
+						}
 				}
 				else {
-					$this->redirect('user/changepassword?user_id='.$user_id.'&user_email='.$user_email);
+					
 				$this->getUser()->setFlash('user_change_failure', true);
+					$this->redirect('user/changepassword?user_id='.$user_id.'&user_mail='.$email_local_part);
 				}
 
 				

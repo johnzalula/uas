@@ -1,5 +1,4 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('user/assets') ?>
 
 <div id="sf_admin_container">
 

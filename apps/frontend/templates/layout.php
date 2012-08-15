@@ -65,6 +65,12 @@
 
 				return false;
 			});
+
+			$('#down').click(function(){
+					$('.showMenu').toggle();
+				
+					return false;
+				});
         });
         </script>
 </head>
@@ -151,6 +157,21 @@
 						</div>
 					</div>
 					<div class="editUser-profile">
+						<div class="rightPane">
+						<div class="btn-group">
+							 <a class="btn" href="#"><i class="icon-user icon-white"></i> User Profile</a>
+							 <a class="btn" id="down" href="#"><span class="caret"></span></a>
+							
+							<div class="showMenu">
+							 <ul class="user-menu-cont">
+								<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+								<li><a href="#"><i class="icon-trash"></i> Change Passowrd</a></li>
+								<li><a href="<?php echo url_for('identification/index') ?>"><i class="icon-ban-circle"></i> User ID</a></li>
+				 			</ul>
+							</div>
+						  </div>
+					</div>
+					<!-- ************************* -->
 					</div>
 
 					<div class="clearFix"></div>

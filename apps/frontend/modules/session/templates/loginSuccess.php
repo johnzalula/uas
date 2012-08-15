@@ -14,7 +14,7 @@
 			<div class="loginError">
 				<div class="alert alert-error">
 					<a class="close" data-dismiss="alert">&times;</a>
-					Either your <strong>password</strong> or <strong>username</strong> was wrong, please try again! 
+					Either your <strong>password</strong> or <strong>username</strong> was wrong, please try again!
 				</div>
 			</div>
 		<?php endif; ?>

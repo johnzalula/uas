@@ -78,6 +78,11 @@ domainname:
     with_wildcard_routes: true
 
 
+logout:
+  url: /signout
+  param: { module: session, action: logout }
+
+
 # default rules
 
 default_homepage:

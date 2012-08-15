@@ -67,14 +67,14 @@
 							<li><a href="<?php echo url_for('session/am') ?>"><?php echo __('Amharic') ?></a></li>	
 						</ul>					
 					</li>
-					<li><a id="showProfile" class="userProfile " href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?></a>
+					<li><a id="showProfile" class="userProfile " href=""><!--<img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?>--></a>
 						<ul class="profileBox closed" id="">
 							<li><a href=""><img src="<?php echo image_path('contact') ?>"></a></li>
 							<li><a href="">haftom</a></li>
 							<li><a href="">hagos</a></li>
 						</ul>
 					</li>
-					<li><?php echo link_to('Logout', '@sf_guard_signout') ?></li>
+					<li><?php echo link_to('Logout', '@logout') ?></li>
 				</ul>
 			</div>
 <?php endif; ?>

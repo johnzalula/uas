@@ -201,7 +201,12 @@ class User extends BaseUser
 	
 	public function checkPassword(Password $password)
 	{
-		return $this->getCryptPassword() == $password->getCryptHash();
+			if($this->getCryptPassword() == $password->getCryptHash())
+			{
+				return true;
+			}
+
+		return null;
 	}
 	
 	// public function getCredential()

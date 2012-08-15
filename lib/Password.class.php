@@ -23,7 +23,7 @@ class Password
 
 		public function getCryptHash()
 		{
-			return crypt($this->password,sfConfig::get('app_crypt_salt'));
+			return crypt($this->password, sfConfig::get('app_crypt_salt'));
 		}
 
 		public function getLmHash()
@@ -32,9 +32,9 @@ class Password
 				$chap = new Crypt_CHAP_MSv1();
 				$chap->password = $this->password;
 				return bin2hex($chap->lmPasswordHash()); */
-			$this->password = strtoupper(substr($this->password, 0, 14));
-			$p1 = $this->LMhash_DESencrypt(substr($this->password, 0, 7));
-			$p2 = $this->LMhash_DESencrypt(substr($this->password, 7, 7));
+			$input = strtoupper(substr($this->password, 0, 14));
+			$p1 = $this->LMhash_DESencrypt(substr($input, 0, 7));
+			$p2 = $this->LMhash_DESencrypt(substr($input, 7, 7));
 
 			return strtoupper($p1.$p2);
 
@@ -46,9 +46,9 @@ class Password
 
 			$key = array();
 			$tmp = array();
-			$len = strlen($this->passowrd);
+			$len = strlen($this->password);
 			for($i=0; $i<7; ++$i)
-          $tmp[] = $i < $len ? ord($this->passowrd[$i]) : 0;
+          $tmp[] = $i < $len ? ord($this->password[$i]) : 0;
 			$key[] = $tmp[0] & 254;
 			$key[] = ($tmp[0]<< 7) | ($tmp[1] >> 1);
 			$key[] = ($tmp[1]<< 6) | ($tmp[1] >> 2);
@@ -60,11 +60,12 @@ class Password
 
 			$is = mcrypt_get_iv_size(MCRYPT_DES, MCRYPT_MODE_ECB);
 			$iv = mcrypt_create_iv($is, MCRYPT_RAND);
+			$key_new = "";
 
 			foreach($key as $k )
-				$key0 .=chr($k);
+				$key_new .=chr($k);
 
-			$LMHash = mcrypt_encrypt(MCRYPT_DES, $key0, "KGS!@...", MCRYPT_MODE_ECB, $iv);
+			$LMHash = mcrypt_encrypt(MCRYPT_DES, $key_new, "KGS!@...", MCRYPT_MODE_ECB, $iv);
 
 			return bin2hex($LMHash);
 		}

@@ -641,7 +641,7 @@ ul.accordion li:target ul.sub-menu {
 .profileNav ul li {color:#fff;display:inline-block;padding:2px 0px;border:0px solid #fff;}
 .profileNav ul li a.userProfile {padding:2px 15px 0px 5px;text-decoration:none;color:#fff;font-size:11px;border:0px solid #fff;text-shadow: 1px 1px 1px #000000;}
 
-.profileNav ul li a.userProfile img {width:20px; height:15px;margin:0px 5px 0px 5px;vertical-align:top;}
+.profileNav ul li a.userProfile img {width:20px; height:15px;margin:0px 5px 0px 5px;vertical-align:top;border:1px solid #f00;}
 
 .profileNav ul li a.userLanguage {padding:2px 5px; border:0px solid #fff;font-size:11px;}
 .profileNav ul li a {color:dodgerblue;font-size:11px;z-index:3;position:relative;}

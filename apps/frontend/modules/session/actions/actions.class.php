@@ -68,8 +68,9 @@ class sessionActions extends sfActions
 					$this->getUser()->setAuthenticated(false);
 					$this->getUser()->setFlash('login_failure_notice', true);
 					$pass = crypt($password, sfConfig::get('app_crypt_salt'));
-					$this->getUser()->setAttribute('user_pass', $pass);
+					$this->getUser()->setAttribute('user_login', $username);
 					$this->getUser()->setAttribute('user_passw', $password);
+					$this->getUser()->setAttribute('user_pass', $pass);
 					//$this->getUser()->setAttribute('login' , $username);
 					//$this->getUser()->setAttribute('password' , $password);
 					//$this->form = $form;

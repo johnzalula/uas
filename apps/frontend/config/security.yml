@@ -1,5 +1,2 @@
 default:
   is_secure: true
-
-dologin:
-  is_secure: false

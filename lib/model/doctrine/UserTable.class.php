@@ -85,7 +85,7 @@ class UserTable extends Doctrine_Table
 			
         $user = Doctrine_Query::create()
                         ->from('User u')
-                        ->where('u.login=? AND u.crypt_password=?',
+                        ->where('u.login=? AND crypt_password=?',
                                     array($username, $password_hash))
                         ->fetchOne();
 

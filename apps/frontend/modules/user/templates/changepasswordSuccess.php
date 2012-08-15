@@ -17,11 +17,20 @@
 	</div>
 <?php endif; ?>
 
-<?php if ($sf_user->getFlash('user_change_failure', false) == true): ?>
+<?php if ($sf_user->getFlash('current_password_failure', false) == true): ?>
 	<div class="loginError">
 		<div class="alert alert-error">
 			<a class="close" data-dismiss="alert">&times;</a>
 			current password is worng!
+		</div>
+	</div>
+<?php endif; ?>
+
+<?php if ($sf_user->getFlash('user_change_failure', false) == true): ?>
+	<div class="loginError">
+		<div class="alert alert-error">
+			<a class="close" data-dismiss="alert">&times;</a>
+			Entry information is wrong!
 		</div>
 	</div>
 <?php endif; ?>

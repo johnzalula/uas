@@ -60,7 +60,7 @@ class sessionActions extends sfActions
     $this->getUser()->resetUserHistory();
 
     $this->getUser()->setFlash('notice', 'You have been logged out!');
-    $this->redirect('session/login');
+    $this->redirect('@sf_guard_signin');
   }
 
   private function get_login_from_config(sfWebRequest $request)

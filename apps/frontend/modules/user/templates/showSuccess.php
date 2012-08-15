@@ -1,3 +1,10 @@
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            
+        });
+   </script>
+
 <?php if($sf_user->isAuthenticated()): ?>
 
 <div class="userBox-container">
@@ -12,7 +19,13 @@
 <?php endif; ?>
 
 	<div class="user-listBox">
+		<div class="lisHeader">
+				<h1>User Detail Information</h1>
+			</div>
+<!--
 		<h3>User Detail Information<span id="minimize" class="opened"><img src="<?php echo image_path('down')  ?>"></span></h3>
+			<a class="button" href="<?php echo url_for('user/new') ?>"><img src="<?php echo image_path('icons/icon-16-add');?>"><?php echo 'New User';?>&nbsp;»</a> -->
+			
 		<div class="userLayer-info">
 			<div class="userDetail-actions">
 				<ul>

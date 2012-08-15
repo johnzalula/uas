@@ -1,6 +1,1 @@
-edit:
-    credentials: [[secretary, admin]]
-delete:
-    credentials: admin
-new:
-    credentials: [[secretary,admin]]   
+ 

@@ -22,5 +22,29 @@ class RegisterUserForm extends UserForm
 		$this['domainname_id'],
 		$this['status']
         ); 
+
+
+		$this->widgetSchema['name'] = new sfWidgetFormInputText(array(), array('class' => 'span3 roundBox', 'placeholder' => 'Enter name'));
+
+		$this->widgetSchema['fathers_name'] = new sfWidgetFormInputText(array( ), array('class' => 'span3 roundBox', 'placeholder' => 'Enter fathers name'));
+
+		$this->widgetSchema['grand_fathers_name'] = new sfWidgetFormInputText(array( ), array('class' => 'span3 roundBox', 'placeholder' => 'Enter grand fathers name'));
+
+		
+		$this->widgetSchema['phone'] = new sfWidgetFormInputText(array(), array('class' => 'span2 roundBox', 'placeholder' => 'Enter phone number'));
+
+		
+		$this->widgetSchema['alternate_email'] = new sfWidgetFormInputText(array(), array('class' => 'span3 roundBox', 'placeholder' => 'Enter alternative email'));
+
+		 $this->widgetSchema->setLabels(array(
+		 'name'               => 'Name:',
+		 'fathers_name'       => 'Fathers Name:',
+		 'grand_fathers_name' => 'Grand Fathers Name:',
+		 'phone'              => 'Phone No:',
+		 'alternate_email'    => 'Alternative Email:'
+		 ));
+	
   }
+
+		
 }

@@ -9,13 +9,12 @@
 <?php endif; ?>
 
 <div class="user-listBox">
-		<h3>Account registration form</h3>
+		<h3>Account Registration Form</h3>
 		<div class="userDetail-actions">
 			<ul>
 				<li><a href="<?php echo url_for('session/login') ?>">Back</a></li>
 			</ul>
 		</div>
-		<p>Please fill in the form to register for an ICT account.</p>
 		<?php include_partial('form', array('form' => $form)) ?>
 	
 </div>

@@ -18,6 +18,15 @@
 	</div>
 <?php endif; ?>
 
+<?php if ($sf_user->getFlash('user_id_saved_success', false) == true): ?>
+	<div class="loginError">
+		<div class="alert alert-success">
+			<a class="close" data-dismiss="alert">&times;</a>
+			You have <strong>Successfuly</strong> enter your ID No!
+		</div>
+	</div>
+<?php endif; ?>
+
 	<div class="user-listBox">
 		<div class="lisHeader">
 				<h1>User Detail Information</h1>
@@ -43,6 +52,11 @@
 					<ul>
 						<li><span class="userInfo">Full name:</span><span class="userData"><?php echo $user->getFullName() ?></span></li>
 						<li><span class="userInfo">Login:</span><span class="userData"><?php echo $user->getLogin() ?></span></li>
+						<li><span class="userInfo">ID No:</span><span class="userData">[
+		<?php foreach( $user->getUserIdentifications() as $useridentity ): ?>
+<?php echo $useridentity->getIdentification().',' ?>
+		<?php endforeach; ?>
+			]</span></li>
 						<li><span class="userInfo">Status:</span><span class="userData"><?php echo $user->getStatus() ?></span></li>
 						<li><span class="userInfo">Expires at:</span><span class="userData"><?php echo $user->getExpiresAt() ?></span></li>
 					</ul>

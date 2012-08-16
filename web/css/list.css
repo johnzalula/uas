@@ -20,6 +20,8 @@
 .userDetail ul li span.user_name { font-size:18px;color:black;letter-spacing:1px;text-shadow: 1px 1px 1px #000000, 0 1px 1px #fff;}
 .userDetail ul li span.user_text {padding-right:8px;font-size:11px;font-weight:bold;}
 .userDetail ul li span.result_text {padding-right:8px;font-size:11px;font-weight:bold;letter-spacing:1px;}
+.userDetail ul li a {}
+.userDetail ul li a:hover {text-decoration:none;}
 
 
 .user-listBox {padding:0px;border:1px solid white;background:#fff;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;-webkit-box-shadow: 0 0px 2px dodgerblue;
@@ -100,13 +102,15 @@
 .userDetail-actions ul li img {vertical-align:top;margin-left:5px;}
 
 .userInfo-Box {padding:10px 15px;;border:1px solid dodgerblue;}
-.userInfo-Box fieldset {border:1px solid dodgerblue;margin:4px 0px 10px 0px;padding:10px 15px;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;background:#f3f5f4;}-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;
-.userInfo-Box fieldset legend {padding:3px 8px;letter-spacing:1px;font-size:12px;font-weight:bold;background:#a2b29b;border:1px solid dodgerblue;-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;color:#fff;text-shadow: 0px 1px 2px #000;}
+.userInfo-Box fieldset {border:1px solid dodgerblue;margin:4px 0px 10px 0px;padding:10px 15px;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;background:#f3f5f4;-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px; }
+
+.userInfo-Box fieldset legend {padding:3px 8px;letter-spacing:1px;font-size:12px;font-weight:bold;border:1px solid dodgerblue;-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;color:#000;text-shadow: 0px 0px 0px #000;background:cornsilk;}
 
 .userList {}
 .userList ul {list-style:none;margin:0px;}
 .userList ul li {border-bottom:0px solid #ddd;line-height:16px;padding:4px 10px;}
-.userList ul li span.userInfo {float:left;text-align:right;width:100px;padding:0px 0px;border:0px solid #f00;font-weight:bold;font-size:11px;}
+.userList ul li span.userInfo {float:left;text-align:right;width:140px;padding:0px 0px;border:0px solid #f00;font-weight:bold;}
+.userList ul li span.userInfo label {font-size:11px;font-weight:bold;}
 .userList ul li span.userData {font-size:11px;padding:0px 10px;border:0px solid #00f;color:#000;text-shadow: 0px 1px 2px #eee;letter-spacing:1px;}
 
 /***********************/

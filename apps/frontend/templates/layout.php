@@ -145,12 +145,12 @@
 			<div class="userBox-container">	
 				<div class="userProfile-cont">
 					<div class="userAvatar">
-						<img src="<?php echo image_path('avatar') ?>">
+						<a href="<?php echo url_for('user/show?id='.$sf_user->getAttribute('uid')) ?>"><img src="<?php echo image_path('avatar') ?>"></a>
 					</div>
 					<div class="userProfile-detail">
 						<div class="userDetail">
 							<ul>
-								<li><span class="user_name"><?php echo $sf_user->getAttribute('full_name') ?></span></li>
+								<li><span class="user_name"><a href="<?php echo url_for('user/show?id='.$sf_user->getAttribute('uid')) ?>"><?php echo $sf_user->getAttribute('full_name') ?></a></span></li>
 								<li><span class="user_text">Login:</span><span class="result_text"><?php echo $sf_user->getAttribute('login_name') ?></span></li>
 								<li><span class="user_text">Email:</span><span class="result_text"><?php echo $sf_user->getAttribute('email_address') ?></span></li>
 							</ul>
@@ -164,9 +164,9 @@
 							
 							<div class="showMenu">
 							 <ul class="user-menu-cont">
-								<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-								<li><a href="#"><i class="icon-trash"></i> Change Passowrd</a></li>
-								<li><a href="<?php echo url_for('identification/index') ?>"><i class="icon-ban-circle"></i> User ID</a></li>
+								<li><a href="<?php echo url_for('user/edit?id='.$sf_user->getAttribute('uid').'&user_name='.UAS::slugify($sf_user->getAttribute('full_name'))) ?>"><i class="icon-pencil"></i> Edit</a></li>
+								<li><a href="<?php echo url_for('user/changepassword?user_id='.$sf_user->getAttribute('uid').'&user_name='.UAS::slugify($sf_user->getAttribute('full_name'))) ?>""><i class="icon-trash"></i> Change Passowrd</a></li>
+								<li><a href="<?php echo url_for('identification/new?user_id='.$sf_user->getAttribute('uid').'&user_name='.UAS::slugify($sf_user->getAttribute('full_name'))) ?>"><i class="icon-ban-circle"></i> User ID</a></li>
 				 			</ul>
 							</div>
 						  </div>

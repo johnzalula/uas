@@ -16,4 +16,10 @@ class UserIdentification extends BaseUserIdentification
     {
             return $this->getUser()->__toString();
     }
+
+	public function __toString()
+	{
+		return $this->getIdentification();
+	}
+
 }

@@ -115,6 +115,38 @@ class userActions extends sfActions
 						$this->getUser()->setFlash('notice_success', true);
 						$this->redirect('user/show?id='.$user->id);
 
+					$message = $this->getMailer()->compose(
+							array('send2joni@gmail.com' => 'UAS Password'),
+										$user->getAlternateEmail(),
+							'Your UAS Password',
+							'your uas pass word is {$changed_pass}');
+							$this->getMailer()->send($message);
+
+
+                // generate welcome mail
+              /*  $body = $this->getPartial('changepassword',
+                    array('user'=>$user,
+                    'password'=>$changed_pass));
+
+                $subject = sfContext::getInstance()->getI18N()
+                    -> ('Your UAS account Information');
+                
+                $mailserver = sfConfig::get('app_system_email');
+                
+                $mailer = $this->getMailer();                
+                $message = $mailer->compose($mailserver['from'], 
+                                            $user->alternate_email,
+                                            $subject);
+
+                $message->setBody($body, 'text/html');
+
+		             try {
+		                 $mailer->send($message);
+		             }
+		             catch (Exception $e) {
+		                 $this->log($e->getMessage());
+		             }*/
+
 					} else {
 
 							$this->getUser()->setFlash('current_password_failure', true);

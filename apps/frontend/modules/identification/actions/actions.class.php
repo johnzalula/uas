@@ -25,7 +25,11 @@ class identificationActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new UserIdentificationForm();
+
+		$user_id = $request->getParameter('user_id');
+		$user_identity = new UserIdentification();
+		$user_identity->setUserId($user_id);
+    	$this->form = new UserIdentificationForm($user_identity);
   }
 
   public function executeCreate(sfWebRequest $request)
@@ -73,7 +77,9 @@ class identificationActions extends sfActions
     {
       $user_identification = $form->save();
 
-      $this->redirect('identification/edit?id='.$user_identification->getId());
+		$this->getUser()->setFlash('user_id_saved_success', true);
+
+      $this->redirect('user/show?id='.$user_identification->getUserId());
     }
   }
 }

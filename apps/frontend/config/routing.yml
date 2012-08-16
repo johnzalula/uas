@@ -1,5 +1,17 @@
 # default rules
-how_user:
+
+new_user_identification:
+  url: /user/identification/new
+  class: sfDoctrineRoute
+  options:
+    model: UserIdentification
+    type: object
+  param: { module: identification, action: new }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+show_user:
   url: /user/show
   class: sfDoctrineRoute
   options:

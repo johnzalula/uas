@@ -1,7 +1,6 @@
 .git
 .gitignore
 /web/uploads/*
-/web/.htaccess
 /cache/*
 /log/*
 /web/*_dev.php

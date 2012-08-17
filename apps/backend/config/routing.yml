@@ -1,3 +1,15 @@
+
+show_user:
+  url: /user/show
+  class: sfDoctrineRoute
+  options:
+    model: User
+    type: object
+  param: { module: user, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 comment:
   class: sfDoctrineRouteCollection
   options:

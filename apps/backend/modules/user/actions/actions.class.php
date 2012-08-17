@@ -13,6 +13,16 @@ require_once dirname(__FILE__).'/../lib/userGeneratorHelper.class.php';
  */
 class userActions extends autoUserActions
 {
+
+	public function executeShow(sfWebRequest $request)
+	{
+
+		$status = $request->getParameter('user_status');
+
+		$this->users = Doctrine::getTable('User')->getUserStatus($status);
+
+	}
+
     public function executeListToggleStatus(sfWebRequest $request)
     {
         //$user = UserPeer::retrieveByPk($request->getParameter('id'));

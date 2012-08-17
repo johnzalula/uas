@@ -136,6 +136,7 @@ ul.accordion li {
 	outline: none;
 }
 
+
 ul.accordion li {
 	list-style: none;
 }
@@ -667,3 +668,83 @@ ul.accordion li:target ul.sub-menu {
 .profileNav ul li ul.profileBox li:last-child {-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;}
 .profileNav ul li ul.profileBox li {display:block;padding:3px 5px;right:0;}
 .profileNav ul li ul.profileBox li  img {float:left;text-align:left;}
+.profileNav ul li a.userList {padding:0px 8px;}
+
+
+.profileNav ul li ul.userList-box {padding-top:6px;list-style:none;background:LightGoldenRodYellow;position:absolute;float:right;width:80px;padding-bottom:5px;-webkit-border-radius:0px 0px 5px 5px;-moz-border-radius:0px 0px 5px 5px;border-radius:0px 0px 5px 5px;color:#000;webkit-box-shadow: 0 4px 8px -3px black;
+	   -moz-box-shadow: 0 4px 8px -3px black;
+	        box-shadow: 0 4px 8px -3px black;display:none;}
+.profileNav ul li ul.userList-box li {display:block;padding:2px 8px;text-align:left;color:dodgerblue;}
+.profileNav ul li ul.userList-box li:first-child a {padding-top:4px;}
+
+.profileNav ul li ul.userList-box li a {font-size:11px;}
+.profileNav ul li ul.userList-box li a:hover {color:#f00;text-decoration:none;}
+
+
+/**********************************/
+
+.sf_admin_userPanel { padding:0px;margin:none;border:1px solid #0088cc;clear:both;background:ghostwhite;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;}
+
+.sf_admin_userPanel h1 {font-size:14px;margin:none;padding:0px 0px 0px 10px;background:#0088cc;
+	text-shadow: 0px 1px 2px #000;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;
+	color: #fff;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(top, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);}
+
+.sf_admin_userList {margin:none;padding:0px 0px 0px 0px;border:0px solid cornflowerblue;}
+
+.sf_admin_userList table {width:100%;padding:0;border-right:0px solid cornflowerblue;}
+.sf_admin_userList table thead {margin:none;}
+.sf_admin_userList table thead tr {border-bottom:1px solid cornflowerblue;border-right:1px solid cornflowerblue;margin:none;}
+
+.sf_admin_userList table thead tr th {text-align:left;padding:8px 10px;background: #dedede url('../images/grid-hrow.gif') repeat-x bottom;color: #002077;
+	text-shadow: 0px 0px 1px #777;letter-spacing:1px;font-size:12px;letter-spacing:1px;margin:none;}
+
+.sf_admin_userList table thead tr th.check-box {width:10px;}
+.sf_admin_userList table thead tr th.sf_admin_user_action {width:100px;border-left:0px solid #f00;margin:0;text-align:center;padding:0px;}
+
+.sf_admin_user_action_list ul {}
+.sf_admin_user_action_list ul li {}
+.sf_admin_user_action_list ul li a {}
+.sf_admin_user_action_list ul li a:hover{ color:#990000;} 
+
+.sf_admin_userList table thead tr th 
+.sf_admin_userList table thead tr th a {text-align:left;background:#699C4D;
+	color: #002077;
+	text-shadow: 0px 0px 1px #777;letter-spacing:1px;}
+.sf_admin_userList table thead tr th.sf_admin_text a {
+	color: #002077;
+	text-shadow: 0px 0px 1px #777;letter-spacing:1px;text-decoration:none; }
+.sf_admin_userList table thead tr th.sf_admin_text a:hover {color:#990000;text-decoration:none; }
+
+.sf_admin_userList table thead tr th a:hover {text-decoration:none;}
+.sf_admin_userList table thead tr th#sf_admin_list_batch_actions {text-align:left;width:15px;margin:none;paduserding:0px 0px;text-align:center;border-right:0px solid #ddd;}
+.sf_admin_userList table thead tr th#sf_admin_list_th_actions {text-align:center;width:100px;padding:5px 10px;border-left:0px solid #f00;}
+
+.sf_admin_userList table tfoot {color: #444;
+	text-shadow: 0px 0px 0px #777;letter-spacing:1px;}
+.sf_admin_userList table tfoot tr {border-right:1px solid cornflowerblue;}
+.sf_admin_userList table tfoot tr th {padding:10px 10px;background: #dedede url('../images/grid-hrow.gif') repeat-x bottom;font-size:11px;}
+
+.sf_admin_userList table tbody {}
+.sf_admin_userList table tbody tr {border-bottom:1px solid cornflowerblue;border-right:1px solid cornflowerblue;}
+.sf_admin_userList table tbody tr td {font-weight:normal;padding:6px 8px 6px 8px;margin:0px;line-height:16px;border-left:0px solid #f00;}
+
+.sf_admin_userList table tbody tr td input.sf_admin_batch_checkbox {margin:none:padding:0px;}
+
+.sf_admin_userList table tbody tr.even {background:rgba(62, 148, 216, 0.06);font-size:11px;}
+.sf_admin_userList table tbody tr.odd {background:#fff;font-size:11px;}
+.sf_admin_userList table tbody tr td ul {margin:0;padding:0;width:100px;list-style:none;text-align:right;color:#990000;border:0px solid #f00;}
+.sf_admin_userList table tbody tr td ul li {display:inline-block;padding:1px 2px;font-size:10px;color: #002077;
+	text-shadow: 0px 0px 1px #777;text-align:right;}
+.sf_admin_userList table tbody tr td ul li a {font-size:10px;color: #002077;
+	text-shadow: 0px 0px 1px #777;font-weight:normal;}
+.sf_admin_userList table tbody tr td ul li a:hover {text-decoration:none;color:#990000;}
+
+

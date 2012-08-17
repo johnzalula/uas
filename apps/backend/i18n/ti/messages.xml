@@ -6,15 +6,15 @@
     <body>
       <trans-unit id="1">
         <source>English</source>
-        <target/>
+        <target >ኢንግሌዝ</target>
       </trans-unit>
       <trans-unit id="2">
         <source>Tigrigna</source>
-        <target/>
+        <target>ትግር</target>
       </trans-unit>
       <trans-unit id="3">
         <source>Amharic</source>
-        <target/>
+        <target>አማር</target>
       </trans-unit>
       <trans-unit id="4">
         <source>User</source>
@@ -28,6 +28,14 @@
         <source>Status</source>
         <target/>
       </trans-unit>
+      <trans-unit id="7">
+        <source>Language</source>
+        <target >ቀንቀ</target>
+      </trans-unit>
+		<trans-unit id="8">
+			<source>Logout</source>
+			<target>ውፅኢ</target>
+		</trans-unit>
     </body>
   </file>
 </xliff>

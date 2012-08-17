@@ -41,6 +41,31 @@
 
 				return false;
 			});
+
+			$('#showList').click(function(){
+				
+				if($(".userList-box").hasClass('closed')){
+	
+					$(".userList-box").slideDown('fast');
+					$(".userList-box").removeClass('closed');
+					$(".userList-box").addClass('opened');
+					$('.userList-box li a').css('color', 'dodgerblue');
+					$('.userList-box li a:hover').css('color', 'red');
+					$(this).parent().css('background', 'LightGoldenRodYellow ');
+					$(this).parent().css('color', '#f00');
+	
+				}
+				else {
+					
+					$(".userList-box").slideUp('fast');
+					$(".userList-box").removeClass('opened');
+					$(".userList-box").addClass('closed');
+					$(this).parent().css('background', '#333');
+				}
+
+				return false;
+			});
+
         });
         </script>
 </head>
@@ -60,21 +85,21 @@
 <?php if($sf_user->isAuthenticated()): ?>
 			<div class="profileNav">
 				<ul>
-					<li><a id="showLanguage" class="userLanguage" href="">Language</a>
+					<li><a id="showList" class="userList " href="">User Lists<!--<img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?>--></a>
+						<ul class="userList-box closed" id="">
+							<li><a href="<?php echo url_for('user/show?user_status=activated') ?>">Active</a></li>
+							<li><a href="<?php echo url_for('user/show?user_status=disactivated') ?>">Disactivated</a></li>
+							<li><a href="<?php echo url_for('user/show?user_status=preregistered') ?>">Preregistered</a></li>
+						</ul>
+					</li>
+					<li><a id="showLanguage" class="userLanguage" href=""><?php echo __('Language') ?></a>
 						<ul class="languageList closed">	
 							<li><a href="<?php echo url_for('session/en') ?>"><?php echo __('English') ?></a> </li> 
 							<li><a href="<?php echo url_for('session/tig') ?>"><?php echo __('Tigrigna') ?></a></li>  
 							<li><a href="<?php echo url_for('session/am') ?>"><?php echo __('Amharic') ?></a></li>	
 						</ul>					
 					</li>
-					<li><a id="showProfile" class="userProfile " href=""><!--<img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?>--></a>
-						<ul class="profileBox closed" id="">
-							<li><a href=""><img src="<?php echo image_path('contact') ?>"></a></li>
-							<li><a href="">haftom</a></li>
-							<li><a href="">hagos</a></li>
-						</ul>
-					</li>
-					<li><?php echo link_to('Logout', '@logout') ?></li>
+					<li><?php echo link_to(__('Logout'), '@logout') ?></li>
 				</ul>
 			</div>
 <?php endif; ?>
@@ -91,24 +116,19 @@
 					<div><img src="<?php echo image_path('mu-logo');?>" height="40" width="40"></div>
 					<span class="title">Mekelle University</span><br>
 					<span class="sub-title ">User Administration System (UAS)</span>
+				
 				</div><!-- end of logo -->
 			</div><!-- end of logo-box -->
 			<?php if($sf_user->isAuthenticated()): ?>
-			<!--<div class="user-profile-cont">
+			<div class="user-profile-cont">
 				<div class="userBox">
 					<div class="userAvatar">
-						<img src="<?php echo image_path('avatar') ?> ">
-					</div>
-					<div class="userDetail">
-						<ul>
-							<li><?php echo link_to('Logout', '@sf_guard_signout') ?></li>
-						</ul>
 					</div>
 
 					<div class="clearFix"></div>			
 
 				</div>
-			</div>-->
+			</div>
 		<?php endif; ?>
 			<div class="clearFix"></div>
 		</div><!-- end of header -->
@@ -124,7 +144,7 @@
 			
 			<li id="one" class="files">
 
-				<a href="#one">User Administration<span><img src="<?php echo image_path('downarr') ?> "></span></a>
+				<a href="">User Administration<span><img src="<?php echo image_path('downarr') ?> "></span></a>
 
 				<ul class="sub-menu">
 					<li ><a href="<?php echo url_for('@user') ?>"><?php echo __('User') ?></a></li>
@@ -137,7 +157,7 @@
 			
 			<li id="two" class="mail">
 
-				<a href="#two">Mail Configuration<span><img src="<?php echo image_path('downarr') ?> "></span></a>
+				<a href="">Mail Configuration<span><img src="<?php echo image_path('downarr') ?> "></span></a>
 
 				<ul class="sub-menu">
 					<li><?php echo link_to('Aliases', '@email_alias') ?></li>

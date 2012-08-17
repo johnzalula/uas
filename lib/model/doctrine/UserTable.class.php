@@ -98,5 +98,16 @@ class UserTable extends Doctrine_Table
         return null;
     }
 
+	public function getUserStatus($user_status)
+    {
+			
+        $users = Doctrine_Query::create()
+                        ->from('User u')
+                        ->where('u.status=?', array($user_status));
+
+
+           return $users->execute();
+    }
+
 }
 

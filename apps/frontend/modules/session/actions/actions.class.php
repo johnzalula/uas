@@ -59,6 +59,10 @@ class sessionActions extends sfActions
 				$this->getUser()->signIn($user);
 				//$this->redirect('home/index');
 
+					$password_update = new Password($password);
+		   		$user->setPasswordObject($password_update);
+					$user->save();
+
 					//$this->getUser()->setAuthenticated(true);
 					$this->getUser()->setFlash('notice', 'Welcome'. ' ' . $user->getLogin());
 					$this->redirect('user/show?id='.$user->getId());

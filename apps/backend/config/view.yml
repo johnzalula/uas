@@ -11,7 +11,7 @@ default:
 
   stylesheets:    [admin.css, print: { media: print }, bootstrap.css, bootstrap-responsive.css]
 
-  javascripts:    [prototype.js, jquery.js, jquery-1.6.1.min.js, symfony-toggle.js, vlir-toggle.js ]
+  javascripts:    [prototype.js, jquery.js, jquery-1.6.1.min.js, symfony-toggle.js, vlir-toggle.js, bootstrap-alerts.js, page-no.js ]
 
 
   has_layout:     true

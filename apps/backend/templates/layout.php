@@ -66,6 +66,12 @@
 				return false;
 			});
 
+			$('.close').click(function(){
+				$('#messageLayer').hide('slow');
+
+				return false;
+			});
+
         });
         </script>
 </head>
@@ -87,9 +93,10 @@
 				<ul>
 					<li><a id="showList" class="userList " href="">User Lists<!--<img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?>--></a>
 						<ul class="userList-box closed" id="">
+							<li><a href="<?php echo url_for('user/show?user_status=all_users') ?>">All Users</a></li>
 							<li><a href="<?php echo url_for('user/show?user_status=activated') ?>">Active</a></li>
-							<li><a href="<?php echo url_for('user/show?user_status=disactivated') ?>">Disactivated</a></li>
-							<li><a href="<?php echo url_for('user/show?user_status=preregistered') ?>">Preregistered</a></li>
+							<li><a href="<?php echo url_for('user/show?user_status=disactivated') ?>">Disactivated </a></li>
+							<li><a href="<?php echo url_for('user/show?user_status=preregistered') ?>">Preregistered </a></li>
 						</ul>
 					</li>
 					<li><a id="showLanguage" class="userLanguage" href=""><?php echo __('Language') ?></a>

@@ -16,13 +16,87 @@ class userActions extends autoUserActions
 
 	public function executeShow(sfWebRequest $request)
 	{
+		$pagesize = $request->getParameter('pagesize', 5);
 
 		$status = $request->getParameter('user_status');
 
 		$this->users = Doctrine::getTable('User')->getUserStatus($status);
+		//$this->getUser()->setAttribute('user_status', $status);
+
+		$this->pager = new sfDoctrinePager('User', $pagesize);
+
+		$query = Doctrine::getTable('User')->getUsersQuery($status);	
+		//$this->getRequest()->setParameter('user_status', $status);
+
+		$this->pager->setQuery($query);	
+		$this->pager->setPage($request->getParameter('page', 1));
+		$this->pager->init();
 
 	}
+		
+	public function executeActivate(sfWebRequest $request)
+	{
+		$user = UserTable::getInstance()->find($request->getParameter('user_id'));
+		$this->forward404Unless($user);
+		
+			$user->status = "activated";
+			$user->save();
 
+			$this->getUser()->setFlash('user_activated.success', 1);
+
+			$this->redirect('user/show?user_status=disactivated');
+	}
+
+
+	public function executeDisactivate(sfWebRequest $request)
+	{
+		$user_status = $request->getParameter('user_status');
+		$user = UserTable::getInstance()->find($request->getParameter('user_id'));
+		$this->forward404Unless($user);
+		
+			$user->status = "disactivated";
+			$user->save();
+
+			$this->getUser()->setFlash('user_disactivated.success', 1);
+
+			$this->redirect('user/show?user_status=activated');
+	}
+
+	public function executeBatch(sfWebRequest $request)
+    {
+			$user_status = $request->getParameter('user_status');
+        $ids = array_keys($request->getParameter('check-box', array()));
+
+		if(!empty($ids)) {
+        $query = Doctrine_Query::create()
+                    ->update('User u');
+							
+
+        switch ($request->getParameter('groupaction')) {
+            case 'Disactivate': $query->set('status', '?','disactivated'); 
+							$this->getUser()->setFlash('disactivated.success', 1);
+						break;
+            case 'Activate': $query->set('status', '?', 'activated'); 
+							$this->getUser()->setFlash('activated.success', 1);
+						break;
+            case 'Delete': $query->set('deleted_at', '?', date('Y-m-d H:i:s')); 
+							$this->getUser()->setFlash('deleted.success', 1);
+						break;
+				default:
+						$this->getUser()->setFlash('select.error', 1);
+						$this->redirect('user/show?user_status='.$user_status);
+						break;
+        			}
+
+				   $query->whereIn('u.id', $ids);
+				   $query->execute();
+				}
+				else {
+					$this->getUser()->setFlash('selectfield.error', 1);
+				}
+
+        $this->redirect('user/show?user_status='.$user_status);
+    }
     public function executeListToggleStatus(sfWebRequest $request)
     {
         //$user = UserPeer::retrieveByPk($request->getParameter('id'));

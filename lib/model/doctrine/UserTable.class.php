@@ -9,6 +9,42 @@ class UserTable extends Doctrine_Table
         return Doctrine_Core::getTable('User');
     }
 
+	static function getQuery($status)
+	{
+		if($status == "all_users")
+		{
+			return Doctrine_Query::create()
+			->from('User u')
+			->orderBy('u.name ASC');
+		}
+
+		return Doctrine_Query::create()
+			->from('User u')
+			->where('u.status=?', array($status))
+			->orderBy('u.name ASC');
+	}	
+
+	public function addUsersToQuery(Doctrine_Query $q)
+	{
+		$alias = $q->getRootAlias();
+		//$q->andWhere($alias.".expires_at > ?", date('Y-m-d H:i:s', time()));
+		//$q->andWhere($alias.'.is_activated = ?', 1);
+		return $q;
+	}
+
+	public function getUsersQuery($status)
+	{
+		return $this->addUsersToQuery(self::getQuery($status));
+	}
+
+	public function getUsers()
+	{
+		$q = $this->createQuery('u')
+	     ->orderBy('u.name ASC');
+	   
+		return $q->execute();
+	}
+
     static public $status_types = array (
         'activated' => 'Activated',
         'disactivated' => 'Disactivated',

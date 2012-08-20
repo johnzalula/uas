@@ -6,15 +6,15 @@
     <body>
       <trans-unit id="1">
         <source>English</source>
-        <target >ኢንግሌዝ</target>
+        <target >ኢንግሊዘኛ</target>
       </trans-unit>
       <trans-unit id="2">
         <source>Tigrigna</source>
-        <target>ትግር</target>
+        <target>ትግርኛ</target>
       </trans-unit>
       <trans-unit id="3">
         <source>Amharic</source>
-        <target>አማር</target>
+        <target>ኣምሓርኛ</target>
       </trans-unit>
       <trans-unit id="4">
         <source>User</source>

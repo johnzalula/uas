@@ -97,7 +97,7 @@ logout:
 
 # default rules
 
-default_homepage:
+homepage:
     url: /
     param: 
         module: user

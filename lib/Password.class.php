@@ -51,11 +51,11 @@ class Password
           $tmp[] = $i < $len ? ord($this->password[$i]) : 0;
 			$key[] = $tmp[0] & 254;
 			$key[] = ($tmp[0]<< 7) | ($tmp[1] >> 1);
-			$key[] = ($tmp[1]<< 6) | ($tmp[1] >> 2);
-			$key[] = ($tmp[2]<< 5) | ($tmp[1] >> 3);
-			$key[] = ($tmp[3]<< 4) | ($tmp[1] >> 4);
-			$key[] = ($tmp[4]<< 3) | ($tmp[1] >> 5);
-			$key[] = ($tmp[5]<< 2) | ($tmp[1] >> 6);
+			$key[] = ($tmp[1]<< 6) | ($tmp[2] >> 2);
+			$key[] = ($tmp[2]<< 5) | ($tmp[3] >> 3);
+			$key[] = ($tmp[3]<< 4) | ($tmp[4] >> 4);
+			$key[] = ($tmp[4]<< 3) | ($tmp[5] >> 5);
+			$key[] = ($tmp[5]<< 2) | ($tmp[6] >> 6);
 			$key[] = ($tmp[6]<< 1);	
 
 			$is = mcrypt_get_iv_size(MCRYPT_DES, MCRYPT_MODE_ECB);

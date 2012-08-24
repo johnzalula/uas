@@ -62,17 +62,17 @@ class LDAP {
             $user_to_add["homePhone"] = $user->getPhone();
         }
 
-        ldap_add($this->_connection, $udn, $user_to_add);
+        return ldap_add($this->_connection, $udn, $user_to_add);
     }
 
     public function delete_user($user) {
         if (!$this->user_exists($user)) {
-            return;
+            return false;
         }
 
         $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
 
-        ldap_delete($this->_connection, $udn);
+        return ldap_delete($this->_connection, $udn);
     }
 
     public function update_password($user) {
@@ -86,7 +86,7 @@ class LDAP {
             $user_to_modify["userPassword"] = "";
         }
 
-        ldap_modify($this->_connection, $udn, $user_to_modify);
+        return ldap_modify($this->_connection, $udn, $user_to_modify);
     }
 
     public function update_user($user) {
@@ -94,7 +94,7 @@ class LDAP {
         // update this function ;)
 
         $this->delete_user($user);
-        $this->add_user($user);
+        return $this->add_user($user);
     }
 
     public function user_exists($user) {

@@ -15,19 +15,21 @@ abstract class BaseUserIdentificationForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'             => new sfWidgetFormInputHidden(),
-      'identification' => new sfWidgetFormInputText(),
-      'user_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
-      'created_at'     => new sfWidgetFormDateTime(),
-      'updated_at'     => new sfWidgetFormDateTime(),
+      'id'                  => new sfWidgetFormInputHidden(),
+      'identification_type' => new sfWidgetFormInputText(),
+      'identification'      => new sfWidgetFormInputText(),
+      'user_id'             => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
+      'created_at'          => new sfWidgetFormDateTime(),
+      'updated_at'          => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
-      'id'             => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'identification' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'user_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
-      'created_at'     => new sfValidatorDateTime(),
-      'updated_at'     => new sfValidatorDateTime(),
+      'id'                  => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'identification_type' => new sfValidatorString(array('max_length' => 50)),
+      'identification'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'user_id'             => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
+      'created_at'          => new sfValidatorDateTime(),
+      'updated_at'          => new sfValidatorDateTime(),
     ));
 
     $this->validatorSchema->setPostValidator(

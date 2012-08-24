@@ -40,6 +40,13 @@ class User extends BaseUser
         return $this->getEmailLocalPart(). '@' . $this->getDomainName();
     }    
     
+	public function countUsers($status)
+	{
+		return Doctrine_Query::create()
+			->from('User u')
+			->where('u.status=?', array($status))
+			->count();
+	}
     public function ToggleStatus()
     {
         if($this->getStatus()=='activated')

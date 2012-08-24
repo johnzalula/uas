@@ -23,6 +23,12 @@
 							<?php if($form['identification']->hasError()): ?>
 					<li><?php echo $form['identification']->renderError() ?></li>
 							<?php endif; ?>
+					<li>
+						<span class="userInfo"><?php echo $form['identification_type']->renderLabel() ?></span>
+							<ul>
+								<li><?php echo $form['identification_type'] ?></li>				
+							</ul>
+					<li>
 				</ul>
 			</div>
 		</fieldset>

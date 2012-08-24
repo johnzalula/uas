@@ -2,7 +2,7 @@
 
 
 .userBox-container {padding:5px 5px 10px 5px;;border:0px solid #000;}
-.userProfile-cont {padding:15px;border:1px solid #fff;border:1px solid dodgerblue;background: url(../images/header-bg.png) repeat left top;-webkit-border-radius:5px 5px 5px 5px;-moz-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;-webkit-box-shadow: 0 0px 1px dodgerblue;
+.userProfile-cont {padding:15px;border:1px solid #fff;border:1px solid dodgerblue;background: transparent url(../images/header-bg.png) repeat left top;-webkit-border-radius:5px 5px 5px 5px;-moz-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;-webkit-box-shadow: 0 0px 1px dodgerblue;
 	   -moz-box-shadow: 0 0px 1px dodgerblue;
 	        box-shadow: 0 0px 1px dodgerblue;}
 
@@ -110,8 +110,13 @@
 .userList ul {list-style:none;margin:0px;}
 .userList ul li {border-bottom:0px solid #ddd;line-height:16px;padding:4px 10px;}
 .userList ul li span.userInfo {float:left;text-align:right;width:140px;padding:0px 0px;border:0px solid #f00;font-weight:bold;}
-.userList ul li span.userInfo label {font-size:11px;font-weight:bold;}
+.userList ul li span.userInfo label {font-size:11px;font-weight:bold;border:0px solid #00f;}
 .userList ul li span.userData {font-size:11px;padding:0px 10px;border:0px solid #00f;color:#000;text-shadow: 0px 1px 2px #eee;letter-spacing:1px;}
+.userList ul li ul {float:left;border:0px solid #f00;margin:0px;padding:0px;}
+.userList ul li ul li {display:inline-block;margin:0px;padding:0px;}
+.userList ul li ul li label { float:right;margin:0px 20px 0px 5px;padding:0px;font-size:10px;font-weight:bold;}
+.userList ul li ul li input {}
+.userList ul li ul li:first-child {margin-left:5px;}
 
 /***********************/
 

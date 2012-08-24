@@ -67,7 +67,7 @@
 			});
 
 			$('.close').click(function(){
-				$('#messageLayer').hide('slow');
+				$('.loginError').hide('slow');
 
 				return false;
 			});

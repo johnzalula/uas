@@ -36,8 +36,9 @@ User:
           type: unique
   
 UserIdentification:
-    actAs: { Timestampable: ~ }
+    actAs: { Timestampable: ~ } type: { type: enum, values: [free, small, pro, unlimited] }
     columns:
+        identification_type: { type: string(50), notnull: true }
         identification:       { type: string(255), unique: true } 
         user_id:      { type: integer, notnull: true }
     relations:

@@ -23,8 +23,17 @@ class UserIdentificationForm extends BaseUserIdentificationForm
 		$this->widgetSchema['identification'] = new sfWidgetFormInputText(array(), array('class' => 'span3 roundBox', 'placeholder' => 'Enter identification number'));
 
 		 $this->widgetSchema->setLabels(array(
-		 'identification'               => 'Identification No:'
+		 'identification' => 'Identification No:',
+		 'identification_type' => 'ID Type:'
 		 ));
+		
+		$this->widgetSchema['identification_type'] = 
+		new sfWidgetFormChoice(
+			array(
+				'choices' => UserIdentificationTable::getAccessTypes(),			
+				'expanded' => true,
+				'multiple' => false
+				));
 
 		$this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
   }

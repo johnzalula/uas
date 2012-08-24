@@ -52,11 +52,11 @@
 					<ul>
 						<li><span class="userInfo">Full name:</span><span class="userData"><?php echo $user->getFullName() ?></span></li>
 						<li><span class="userInfo">Login:</span><span class="userData"><?php echo $user->getLogin() ?></span></li>
-						<li><span class="userInfo">ID No:</span><span class="userData">[
+						<li><span class="userInfo">ID No:</span><span class="userData">
 		<?php foreach( $user->getUserIdentifications() as $useridentity ): ?>
-<?php echo $useridentity->getIdentification().',' ?>
+<?php echo '[ '.'<i>'. $useridentity->getIdentificationType() .'</i>'.' => '. $useridentity->getIdentification().' ]' ?>
 		<?php endforeach; ?>
-			]</span></li>
+			</span></li>
 						<li><span class="userInfo">Status:</span><span class="userData"><?php echo $user->getStatus() ?></span></li>
 						<li><span class="userInfo">Expires at:</span><span class="userData"><?php echo $user->getExpiresAt() ?></span></li>
 					</ul>

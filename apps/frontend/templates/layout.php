@@ -71,6 +71,13 @@
 				
 					return false;
 				});
+
+			$('.close').click(function(){
+				$('#messageLayer').hide('slow');
+
+				return false;
+			});
+
         });
         </script>
 </head>

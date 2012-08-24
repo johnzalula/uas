@@ -14,7 +14,6 @@ class myUser extends sfBasicSecurityUser
 			$this->setAttribute('first_name', $user->getName());
 			$this->setAttribute('email_local_part', $user->getEmailLocalPart());
 			$this->setAttribute('email_address', $user->getEmailAddress());
-        //$this->addCredential('admin');
         
 
     }

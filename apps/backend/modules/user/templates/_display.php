@@ -45,7 +45,7 @@
 				<td><?php echo $user->getLogin() ?></td>
 				<td><?php echo $user->getFullName() ?></td>
 				<td><?php echo $user->getLogin() ?></td>
-				<td><?php echo $user->getStatus() ?></td>
+				<td><strong><?php echo ucfirst($user->getStatus()) ?></strong></td>
 
 				<td class="sf_admin_user_action_list">
 					<ul>

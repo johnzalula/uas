@@ -32,3 +32,6 @@ SELECT `user`.`id` AS `id`,
         `user`.`crypt_password` AS `value`
 FROM `user`;
 
+CREATE VIEW domainname AS
+SELECT * FROM `domain_name`
+FROM `user`;

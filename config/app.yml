@@ -4,3 +4,6 @@ all:
   account_extend_days: 365
   default_domain_name: mu.edu.et
   crypt_salt: ju
+  ldap_host: ldap.mu.edu.et
+  ldap_user: cn=admin,dc=mu,dc=edu,dc=et
+  ldap_pass: change_me

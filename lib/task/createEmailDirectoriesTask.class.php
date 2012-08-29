@@ -52,8 +52,10 @@ EOF;
      $db_email_addresses = array();
      $domains_on_system = array();
      $system_email_addresses = array();
+		
+		
      
-     foreach  (UserPeer::getEmailAccounts() as $user)
+     foreach  (User::getEmailAccounts() as $user)
      {
         $db_email_addresses[] =  $user->getEmailAddress();          
      }

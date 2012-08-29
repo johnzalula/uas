@@ -21,7 +21,7 @@
 <?php if ($sf_user->getFlash('select.error', 0) != 0):?>
 <div id="messageLayer">
 	<div class="alert alert-error">
-		<a class="close" data-dismiss="alert">&times;</a>
+		<a class="close" data-dismiss="alert">&times;</a> 
 		Please select action!
 	</div>
 </div>
@@ -72,7 +72,7 @@
 	</div>
 </div>
 <?php endif; ?>
-
+ 
 <div class="sf_admin_userPanel">
 	<div class="sf_admin_userHeader">
 	<h1><?php echo ucfirst($sf_request->getParameter('user_status')) ?> Users </h1>
@@ -91,7 +91,7 @@
 					<ul>
 						
 						<li class="display_list" id="display">Display: # 
-						<select name="pagesize" class="selspan" id="pagesize">
+						<select onclick="<?php echo url_for('@show_user') ?>" name="pagesize" class="selspan" id="pagesize">
                 <option value="5" <?php echo $sf_request->getParameter('pagesize', 5) == 5? 'selected' : '';?>>5</option>
                 <option value="10" <?php echo $sf_request->getParameter('pagesize', 5) == 10? 'selected' : '';?>>10</option>
                 <option value="15" <?php echo $sf_request->getParameter('pagesize', 5) == 15? 'selected' : '';?>>15</option>

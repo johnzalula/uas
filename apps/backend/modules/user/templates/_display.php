@@ -17,7 +17,7 @@
             $("#allcheckBox").removeAttr("checked");
         }
  
-    });
+    }); 
 });
 
 </script>

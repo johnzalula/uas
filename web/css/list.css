@@ -21,7 +21,7 @@
 .userDetail ul li span.user_text {padding-right:8px;font-size:11px;font-weight:bold;}
 .userDetail ul li span.result_text {padding-right:8px;font-size:11px;font-weight:bold;letter-spacing:1px;}
 .userDetail ul li a {}
-.userDetail ul li a:hover {text-decoration:none;}
+.userDetail ul li a:hover {text-decoration:none;} 
 
 
 .user-listBox {padding:0px;border:1px solid white;background:#fff;-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;-webkit-box-shadow: 0 0px 2px dodgerblue;

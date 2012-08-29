@@ -109,12 +109,14 @@ class LDAP {
         // this is very lazy, but easy to understand and you will never need to 
         // update this function ;)
 
-	//$user = UserTable::getInstance()->getUserFromLogin($user_login);
-        $this->delete_user($user);
+       	$this->delete_user($user);
 
-	$this->add_user($user);
-
+	// check if the user is activated otherwise ignore it	
+	if($user->getStatus() == "activated"){
+		$this->add_user($user);
 	}
+
+    }
 
     public function user_exists(User $user) {
         $filter = '(|(uid=' . $user->getLogin() . '))';

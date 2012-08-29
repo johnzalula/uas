@@ -6,11 +6,11 @@ class LDAP {
 
     // When we create this object we need to provide the details
     // Try to work with persistent connections?
-    public function __construct($ldap_ip, $ldap_user, $ldap_password) {
-        $this->_connection = ldap_connect($ldap_ip)
+    public function __construct() {
+        $this->_connection = ldap_connect(sfConfig::get('app_ldap_host'))
                 or die("Could not connect to ldap server");
 
-        ldap_bind($this->_connection, $ldap_user, $ldap_password);
+        ldap_bind($this->_connection, sfConfig::get('app_ldap_user'), sfConfig::get('app_ldap_pass'));;
     }
 
     // Cleanup ofcourse
@@ -20,14 +20,14 @@ class LDAP {
 
     // needs an UAS user object
     // a User object is represented by /lib/model/doctrine/User.class.php
-    public function add_user($user) {
+    public function add_user(User $user) {
         // Check if the user exists first, you never know ...
         if ($this->user_exists($user)) {
             $this->delete_user($user);
         }
         
         // This is where we will insert the user in LDAP
-        $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
+        $udn = "uid=" . $user->login . ",ou=people,dc=mu,dc=edu,dc=et";
 
         // Build the user in an array
         // More information: 
@@ -36,16 +36,16 @@ class LDAP {
         $user_to_add["objectClass"][0] = "inetOrgPerson";
         $user_to_add["objectClass"][1] = "posixAccount";
         $user_to_add["objectClass"][2] = "shadowAccount";
-        $user_to_add["uid"] = $user->getLogin();
+        $user_to_add["uid"] = $user->login;
         $user_to_add["cn"] = $user->getName() . " " . $user->getFathersName() . " " . $user->getGrandFathersName();
 
         // Prevent empty sn's
-        if (isset($user->getFathersName()) && $user->getFathersName() != "") {
+        if ($user->getFathersName() != "") {
             $user_to_add["sn"][0] = $user->getFathersName();
         }
 
         // Prevent duplicate sn's
-        if (isset($user->getGrandFathersName()) && $user->getGrandFathersName() != "") {
+        if ($user->getGrandFathersName() != "") {
             if ($user->getGrandFathersName() != $user->getFathersName()) {
                 $user_to_add["sn"][1] = $user->getGrandFathersName();
             }
@@ -57,7 +57,7 @@ class LDAP {
         $user_to_add["gidNumber"] = $user->getGid();
 
         // Prepend {SSHA}
-        if (isset($user->getUnixPassword()) && $user->getUnixPassword() != "") {
+        if ($user->getUnixPassword() != "") {
             $user_to_add["userPassword"] = "{SSHA}" . $user->getUnixPassword();
         } else {
             $user_to_add["userPassword"] = "";
@@ -70,31 +70,31 @@ class LDAP {
         $user_to_add["mail"] = $user->getEmailAddress();
 
         // Prevent empty phone
-        if (isset($user->getPhone()) && $user->getPhone() != "") {
+        if ($user->getPhone() != "") {
             $user_to_add["homePhone"] = $user->getPhone();
         }
 
         return ldap_add($this->_connection, $udn, $user_to_add);
     }
 
-    public function delete_user($user) {
+    public function delete_user(User $user) {
         // Verify the existance first, you never know right
         if (!$this->user_exists($user)) {
             return false;
         }
 
-        $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
+        $udn = "uid=" . $user->login . ",ou=people,dc=mu,dc=edu,dc=et";
 
         return ldap_delete($this->_connection, $udn);
     }
 
     // Update the password (for the updating of SSHA)
-    public function update_password($user) {
-        $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
+    public function update_password(User $user) {
+        $udn = "uid=" . $user->login . ",ou=people,dc=mu,dc=edu,dc=et";
 
         $user_to_modify = array();
 
-        if (isset($user->getUnixPassword()) && $user->getUnixPassword() != "") {
+        if ($user->getUnixPassword() != "") {
             $user_to_modify["userPassword"] = "{SSHA}" . $user->getUnixPassword();
         } else {
             $user_to_modify["userPassword"] = "";
@@ -103,16 +103,18 @@ class LDAP {
         return ldap_modify($this->_connection, $udn, $user_to_modify);
     }
 
-    public function update_user($user) {
+    public function update_user($user_login) {
         // this is very lazy, but easy to understand and you will never need to 
         // update this function ;)
+
+	$user = UserTable::getInstance()->getUserFromLogin($user_login);
 
         $this->delete_user($user);
         return $this->add_user($user);
     }
 
-    public function user_exists($user) {
-        $filter = '(|(uid=' . $user->getLogin() . '))';
+    public function user_exists(User $user) {
+        $filter = '(|(uid=' . $user->login . '))';
         $dn = "ou=people,dc=mu,dc=edu,dc=et";
         $justthese = array('uid');
 

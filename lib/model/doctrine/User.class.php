@@ -39,8 +39,8 @@ class User extends BaseUser {
         // return a home directory in the form of /home/u/us/username
 
         return "/home/" .
-                substr($this->getLogin, 0, 1) . "/" .
-                substr($this->getLogin, 0, 2) . "/" .
+                substr($this->getLogin(), 0, 1) . "/" .
+                substr($this->getLogin(), 0, 2) . "/" .
                 $this->getLogin();
     }
 
@@ -102,6 +102,9 @@ class User extends BaseUser {
             $sfguard_user->save();
             $this->setSfguarduserId($sfguard_user->getId());
         }
+
+	$ldap = new LDAP();
+	$ldap->update_user($this);
 
         return parent::save();
     }
@@ -213,6 +216,13 @@ class User extends BaseUser {
 
     public function listDelete() {
         $this->delete();
+    }
+
+    public function delete(){
+	$ldap = new LDAP();
+	$ldap->delete_user($this);
+
+	parent::delete();
     }
 
     public function getLoginName($email_address) {

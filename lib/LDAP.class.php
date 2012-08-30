@@ -10,6 +10,9 @@ class LDAP {
         $this->_connection = ldap_connect(sfConfig::get('app_ldap_host'))
                 or die("Could not connect to ldap server");
 
+	ldap_set_option($this->_connection, LDAP_OPT_PROTOCOL_VERSION, 3);
+	ldap_set_option($this->_connection, LDAP_OPT_REFERRALS, 0);
+
         ldap_bind($this->_connection, sfConfig::get('app_ldap_user'), sfConfig::get('app_ldap_pass'));;
     }
 
@@ -27,7 +30,7 @@ class LDAP {
         }
         
         // This is where we will insert the user in LDAP
-        $udn = "uid=" . $user->login . ",ou=people,dc=mu,dc=edu,dc=et";
+        $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
 
         // Build the user in an array
         // More information: 
@@ -36,7 +39,7 @@ class LDAP {
         $user_to_add["objectClass"][0] = "inetOrgPerson";
         $user_to_add["objectClass"][1] = "posixAccount";
         $user_to_add["objectClass"][2] = "shadowAccount";
-        $user_to_add["uid"] = $user->login;
+        $user_to_add["uid"] = $user->getLogin();
         $user_to_add["cn"] = $user->getName() . " " . $user->getFathersName() . " " . $user->getGrandFathersName();
 
         // Prevent empty sn's
@@ -83,14 +86,13 @@ class LDAP {
             return false;
         }
 
-        $udn = "uid=" . $user->login . ",ou=people,dc=mu,dc=edu,dc=et";
-
+        $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
         return ldap_delete($this->_connection, $udn);
     }
 
     // Update the password (for the updating of SSHA)
     public function update_password(User $user) {
-        $udn = "uid=" . $user->login . ",ou=people,dc=mu,dc=edu,dc=et";
+        $udn = "uid=" . $user->getLogin() . ",ou=people,dc=mu,dc=edu,dc=et";
 
         $user_to_modify = array();
 
@@ -103,25 +105,28 @@ class LDAP {
         return ldap_modify($this->_connection, $udn, $user_to_modify);
     }
 
-    public function update_user($user_login) {
+    public function update_user(User $user) {
         // this is very lazy, but easy to understand and you will never need to 
         // update this function ;)
 
-	$user = UserTable::getInstance()->getUserFromLogin($user_login);
+       	$this->delete_user($user);
 
-        $this->delete_user($user);
-        return $this->add_user($user);
+	// check if the user is activated otherwise ignore it	
+	if($user->getStatus() == "activated"){
+		$this->add_user($user);
+	}
+
     }
 
     public function user_exists(User $user) {
-        $filter = '(|(uid=' . $user->login . '))';
+        $filter = '(|(uid=' . $user->getLogin() . '))';
         $dn = "ou=people,dc=mu,dc=edu,dc=et";
         $justthese = array('uid');
 
         $sr = ldap_search($this->_connection, $dn, $filter, $justthese);
 
         if (ldap_count_entries($this->_connection, $sr) != 1) {
-            return false;
+		return false;
         }
 
         return true;

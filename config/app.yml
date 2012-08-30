@@ -6,4 +6,4 @@ all:
   crypt_salt: ju
   ldap_host: ldap.mu.edu.et
   ldap_user: cn=admin,dc=mu,dc=edu,dc=et
-  ldap_pass: change_me
+  ldap_pass: 

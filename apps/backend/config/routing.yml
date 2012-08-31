@@ -94,6 +94,11 @@ logout:
   url: /signout
   param: { module: session, action: logout }
 
+login:
+  url: /signin
+  param: { module: session, action: login }
+
+
 
 # default rules
 

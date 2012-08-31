@@ -1,3 +1,4 @@
+<?php if($sf_user->isAuthenticated() && $sf_user->hasCredential('admin')): ?>
 <script language="JavaScript">
 
 	var text_val = document.getElementById("page_no_display").value;
@@ -150,3 +151,13 @@
 	</div>
 
 <?php endif; ?>
+
+<?php else: ?>
+	<div class="loginError">
+		<div class="alert alert-error">
+			<a class="close" data-dismiss="alert">&times;</a>
+				Your are <strong>not Authenticated </strong>to access this page. <strong>Only Administrator</strong> is allowed!
+		</div>
+	</div>
+<?php endif; ?>
+

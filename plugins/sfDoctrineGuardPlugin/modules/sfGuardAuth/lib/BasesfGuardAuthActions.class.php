@@ -71,6 +71,11 @@ class BasesfGuardAuthActions extends sfActions
   public function executeSignout($request)
   {
     $this->getUser()->signOut();
+	
+		$this->getUser()->setAuthenticated(false);
+		$this->getUser()->clearCredentials();
+		$this->getResponse()->setCookie('autologin', 0, 0);
+		$this->getUser()->setFlash('notice', 'See you again soon!');
 
     $signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
 

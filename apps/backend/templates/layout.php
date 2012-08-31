@@ -82,15 +82,20 @@
 			<div class="miniNav">
 				<ul>
 					<?php if($sf_user->isAuthenticated()): ?>
-					<li><a href="<?php echo url_for('@user') ?>">Home</a></li><?php endif; ?>
+						<?php if($sf_user->hasCredential('Admin')): ?>
+					<li><a href="<?php echo url_for('@user') ?>">Home</a></li>
+						<?php endif; ?>
+					<?php endif; ?>
 					<li><a href="http://www.mu.edu.et">MU Site</a></li>
 					<li><a href="https://mail.mu.edu.et">MU Mail</a></li>
 				</ul>
 			</div>
 			
-<?php if($sf_user->isAuthenticated()): ?>
+
 			<div class="profileNav">
 				<ul>
+					<?php if($sf_user->isAuthenticated()): ?>
+						<?php if($sf_user->hasCredential('admin')): ?>
 					<li><a id="showList" class="userList " href="">User Lists<!--<img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('username') ?>--></a>
 						<ul class="userList-box closed" id="">
 							<li><a href="<?php echo url_for('user/show?user_status=all_users') ?>">All Users</a></li>
@@ -106,10 +111,19 @@
 							<li><a href="<?php echo url_for('session/am') ?>"><?php echo __('Amharic') ?></a></li>	
 						</ul>					
 					</li>
-					<li><?php echo link_to(__('Logout'), '@logout') ?></li>
+						<?php endif; ?>
+					<?php endif; ?>
+
+					<?php if($sf_user->isAuthenticated()): ?>
+
+					<li><?php echo link_to(__('Logout'), '@sf_guard_signout') ?></li>
+					
+					<?php else: ?>
+					<li><?php echo link_to(__('Login'), '@sf_guard_signin') ?></li>
+					<?php endif; ?>
 				</ul>
 			</div>
-<?php endif; ?>
+	
 			<div class="clearFix"></div>
 		</div>
 	</div>
@@ -130,6 +144,14 @@
 			<div class="user-profile-cont">
 				<div class="userBox">
 					<div class="userAvatar">
+						<?php echo $sf_user->getFlash('user_credential') ?><br>
+						<?php if($sf_user->hasCredential('Admin')): ?> 
+
+								<?php echo 'Administrator' ?>
+							<?php else: ?>
+								<?php echo 'user'; ?>
+								
+						<?php endif; ?>
 					</div>
 
 					<div class="clearFix"></div>			
@@ -144,7 +166,10 @@
 
 	<div class="wrapperBox">
 		<div class="wrapper">
+
 <?php if($sf_user->isAuthenticated()): ?>
+	<?php if($sf_user->hasCredential('Admin')): ?>
+
 			<div class="left-container">
 				<div class="leftBar">
 					<ul class="accordion">
@@ -193,10 +218,12 @@
 			</div>
 		
 	</div>
+	<?php endif; ?>
 <?php endif; ?>
+		
 			<div class="content-container">
 				<div class="content">
-					<?php echo $sf_content ?>
+						<?php echo $sf_content ?>
 				</div>
 			</div>
 

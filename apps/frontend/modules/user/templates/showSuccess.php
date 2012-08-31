@@ -5,9 +5,19 @@
         });
    </script>
 
-<?php if($sf_user->isAuthenticated()): ?>
+
+
 
 <div class="userBox-container">
+
+<?php if ($sf_user->getFlash('welcome_notice_success', false) == true): ?>
+	<div class="loginError">
+		<div class="alert alert-success">
+			<a class="close" data-dismiss="alert">&times;</a>
+			Welcome <strong><?php echo $sf_user->getAttribute('full_name') ?></strong> you have succeffuly registered! your password is ( <strong><span class="pass"><?php echo $sf_user->getFlash('generated_pass') ?></span></strong> ). pleas change yout password now!
+		</div>
+	</div>
+<?php endif; ?>
 
 <?php if ($sf_user->getFlash('notice_success', false) == true): ?>
 	<div class="loginError">
@@ -88,16 +98,5 @@
 		</div>
 	</div>
 </div>
-<?php else: ?>
-<div class="securedLayer">
-	<div class="loginError">
-		<div class="alert alert-error">
-			<a class="close" data-dismiss="alert">&times;</a>
-			This user is not <strong>Authorized</strong> to access this page!
-		</div>
-	</div>
-
-</div>
-<?php endif ?>
 
 

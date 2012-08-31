@@ -1,3 +1,5 @@
+<?php if($sf_user->isAuthenticated() && $sf_user->hasCredential('admin')): ?>
+
 <?php use_helper('I18N', 'Date') ?>
 
 <div id="sf_admin_container">
@@ -126,5 +128,12 @@
 		<div id="sf_admin_footer">
 		</div>
 	</div>
-
+<?php else: ?>
+	<div class="loginError">
+		<div class="alert alert-error">
+			<a class="close" data-dismiss="alert">&times;</a>
+				Your are <strong>not allowed </strong>to access this page. <strong>Only Administrator</strong> is allowed!
+		</div>
+	</div>
+<?php endif; ?>
 

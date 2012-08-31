@@ -14,52 +14,82 @@ require_once dirname(__FILE__).'/../lib/userGeneratorHelper.class.php';
 class userActions extends autoUserActions
 {
 
+	/*public function executeIndex(sfWebRequest $request)
+	{
+		
+			$this->forward('user', 'listShow');
+	}
+*/
+	///public function executeIndex(sfWebRequest $request)
+	//{
+	//}
+
 	public function executeShow(sfWebRequest $request)
 	{
-		$pagesize = $request->getParameter('pagesize', 5);
+		if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('admin'))
+		{
+			$pagesize = $request->getParameter('pagesize', 5);
 
-		$status = $request->getParameter('user_status');
+			$status = $request->getParameter('user_status');
 
-		$this->users = Doctrine::getTable('User')->getUserStatus($status);
-		//$this->getUser()->setAttribute('user_status', $status);
+			$this->users = Doctrine::getTable('User')->getUserStatus($status);
+			//$this->getUser()->setAttribute('user_status', $status);
 
-		$this->pager = new sfDoctrinePager('User', $pagesize);
+			$this->pager = new sfDoctrinePager('User', $pagesize);
 
-		$query = Doctrine::getTable('User')->getUsersQuery($status);	
-		//$this->getRequest()->setParameter('user_status', $status);
+			$query = Doctrine::getTable('User')->getUsersQuery($status);	
+			//$this->getRequest()->setParameter('user_status', $status);
 
-		$this->pager->setQuery($query);	
-		$this->pager->setPage($request->getParameter('page', 1));
-		$this->pager->init();
+			$this->pager->setQuery($query);	
+			$this->pager->setPage($request->getParameter('page', 1));
+			$this->pager->init();
+
+		}
+		else {
+			$this->redirect('@sf_guard_signin');
+		}
 
 	}
 		
 	public function executeActivate(sfWebRequest $request)
 	{
-		$user = UserTable::getInstance()->find($request->getParameter('user_id'));
-		$this->forward404Unless($user);
+		if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('admin'))
+		{
+			$user = UserTable::getInstance()->find($request->getParameter('user_id'));
+			$this->forward404Unless($user);
 		
-			$user->status = "activated";
-			$user->save();
+				$user->status = "activated";
+				$user->save();
 
-			$this->getUser()->setFlash('user_activated.success', 1);
+				$this->getUser()->setFlash('user_activated.success', 1);
 
-			$this->redirect('user/show?user_status=disactivated');
+				$this->redirect('user/show?user_status=disactivated');
+		}
+		else {
+
+			$this->redirect('@sf_guard_signin');
+		}
 	}
 
 
 	public function executeDisactivate(sfWebRequest $request)
 	{
-		$user_status = $request->getParameter('user_status');
-		$user = UserTable::getInstance()->find($request->getParameter('user_id'));
-		$this->forward404Unless($user);
+		if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('admin'))
+		{
+			$user_status = $request->getParameter('user_status');
+			$user = UserTable::getInstance()->find($request->getParameter('user_id'));
+			$this->forward404Unless($user);
 		
-			$user->status = "disactivated";
-			$user->save();
+				$user->status = "disactivated";
+				$user->save();
 
-			$this->getUser()->setFlash('user_disactivated.success', 1);
+				$this->getUser()->setFlash('user_disactivated.success', 1);
 
-			$this->redirect('user/show?user_status=activated');
+				$this->redirect('user/show?user_status=activated');
+		}
+		else {
+			$this->redirect('@user');
+		}
 	}
 
 	public function executeBatch(sfWebRequest $request)
@@ -121,8 +151,14 @@ class userActions extends autoUserActions
     }
     public function executeListShow(sfWebRequest $request)
 	{      
-        $this->user = $this->getRoute()->getObject();
-        $this->getUser()->addUserToHistory($this->user); 
+		if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('admin'))
+		{		
+		     $this->user = $this->getRoute()->getObject();
+		     $this->getUser()->addUserToHistory($this->user); 	
+		}
+		else {
+		$this->redirect('@sf_guard_signin');
+		}
     }
 
   public function executeDelete(sfWebRequest $request)
@@ -141,7 +177,7 @@ class userActions extends autoUserActions
 
     // Set the password
     $password = new Password();
-	$this->user->setPasswordObject($password);
+		$this->user->setPasswordObject($password);
 	
     // Flash message
     $generated_pass = $password->getPassword();

@@ -22,6 +22,10 @@ show_user:
     id: \d+
     sf_method: [get]
 
+user:
+  class: sfDoctrineRouteCollection
+  options: { model: User }
+
 edit_user_password:
   url: /user/edit
   class: sfDoctrineRoute
@@ -123,6 +127,7 @@ domainname:
     prefix_path:         domainname
     column:              id
     with_wildcard_routes: true
+
 login:
   url: /session
   param: { module: session, action: login }
@@ -137,7 +142,7 @@ logout:
 
 homepage:
   url:   /
-  param: { module: user, action: index }
+  param: { module: user, action: show }
 
 default_index:
   url:   /:module

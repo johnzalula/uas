@@ -1,3 +1,4 @@
+<?php if($sf_user->isAuthenticated() && $sf_user->hasCredential('admin')): ?>
 <script type="text/javascript">
 
 	$(function(){
@@ -82,3 +83,13 @@
 </div>
 </form>
 </div>
+
+<?php else: ?>
+	<div class="loginError">
+		<div class="alert alert-error">
+			<a class="close" data-dismiss="alert">&times;</a>
+				Your are <strong>not Authenticated </strong>to access this page. <strong>Only Administrator</strong> is allowed!
+		</div>
+	</div>
+<?php endif; ?>
+

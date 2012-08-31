@@ -1,2 +1,2 @@
-default:
+all:
   is_secure: true

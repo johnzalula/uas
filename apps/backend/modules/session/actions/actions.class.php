@@ -22,10 +22,10 @@ class sessionActions extends sfActions
     $user_password = $request->getParameter('password');
 
     //Should be with a validator
-    if(!$username OR !$user_password)
+    if(!$username || !$user_password)
     {
-        $this->getUser()->setFlash('error','You must provide Username / Password');
-    	return;
+        $this->getUser()->setFlash('login_error_failure', true);
+    		$this->redirect('@sf_guard_signin');
 	}
 
 	$user = Doctrine::getTable('User')->findOneByLogin($username);
@@ -38,8 +38,10 @@ class sessionActions extends sfActions
         if($user->checkPassword($password)) {
 			if($user->getCredential()) {
             	$this->getUser()->addCredential($user->getCredential());
+					$this->getUser()->setFlash('user_credential', $user->getCredential());
             	$this->getUser()->setAuthenticated(true);
             	$this->getUser()->setFlash('notice', "Welcome " . $user->getCredential());
+					$this->getUser()->setCredential('admin');
             	$this->redirect('@user');            
         	} else {
 		    	$this->getUser()->setFlash('error','You do not have the needed credentials.');
@@ -54,7 +56,7 @@ class sessionActions extends sfActions
   public function executeLogout(sfWebRequest $request)
   {
     $this->getUser()->setAuthenticated(false);
-		$this->getUser()->clearCredentials();
+		$this->getUser()->removeCredential('admin');
 		$this->getResponse()->setCookie('autologin', 0, 0);
 
     $this->getUser()->resetUserHistory();

@@ -18,19 +18,26 @@ class userActions extends sfActions
 	}
 	public function executeShow(sfWebRequest $request)
 	{
-		$current_id = $this->getUser()->getAttribute('uid');
-		$requested_id= $request->getParameter('id');
+		//if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('user'))
+		//{
+			$current_id = $this->getUser()->getAttribute('uid');
+			$requested_id= $request->getParameter('id');
 
-		if($current_id == $requested_id )
-		{       
-			$this->user = Doctrine::getTable('User')->find($request->getParameter('id'));
-			$this->forward404Unless($this->user);
-		}
-		else
-		{     
-			$this->getUser()->setFlash('notice', 'Please View Your Details Only!');       
-			$this->redirect('user/show?id='.$current_id);
-		}
+			if($current_id == $requested_id )
+			{       
+				$this->user = Doctrine::getTable('User')->find($request->getParameter('id'));
+				$this->forward404Unless($this->user);
+			}
+			else
+			{     
+				$this->getUser()->setFlash('notice', 'Please View Your Details Only!');       
+				$this->redirect('user/show?id='.$current_id);
+			}
+		//}
+	//	else
+		//{
+		//	$this->redirect('@login');
+		//}
 	}
 	public function executeEdit(sfWebRequest $request)
 	{

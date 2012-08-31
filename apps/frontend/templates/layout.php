@@ -109,8 +109,8 @@
 					<li><a id="showProfile" class="userProfile" href=""><img src="<?php echo image_path('contact');?>"><?php echo $sf_user->getAttribute('full_name') ?></a>
 						<ul class="profileBox closed" id="">
 							<li><a href=""><img src="<?php echo image_path('contact') ?>"></a></li>
-							<li><a href="">haftom</a></li>
-							<li><a href="">hagos</a></li>
+							<li><a href=""></a></li>
+							<li><a href=""></a></li>
 						</ul>
 					</li>
 					<li><?php echo link_to('Logout', '@logout') ?></li>
@@ -160,6 +160,7 @@
 								<li><span class="user_name"><a href="<?php echo url_for('user/show?id='.$sf_user->getAttribute('uid')) ?>"><?php echo $sf_user->getAttribute('full_name') ?></a></span></li>
 								<li><span class="user_text">Login:</span><span class="result_text"><?php echo $sf_user->getAttribute('login_name') ?></span></li>
 								<li><span class="user_text">Email:</span><span class="result_text"><?php echo $sf_user->getAttribute('email_address') ?></span></li>
+								<li><span class="user_text">Credential:</span><span class="result_text"><?php echo $sf_user->getCredential() ?></span></li>
 							</ul>
 						</div>
 					</div>

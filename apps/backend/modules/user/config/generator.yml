@@ -21,7 +21,7 @@ generator:
           label: Grand Fathers Name
         login:
           label: Login Name
-      list:
+      list:  
         max_per_page: 10
         object_actions:
             show : ~

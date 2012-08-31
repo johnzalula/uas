@@ -1,5 +1,14 @@
 <?php use_helper('I18N') ?>
 
+<?php if ($sf_user->getFlash('login_error_failure', false) == true): ?>
+	<div class="loginError">
+		<div class="alert alert-error">
+			<a class="close" data-dismiss="alert">&times;</a>
+			Either your <strong>password</strong> or <strong>username</strong> was wrong, please try again!
+		</div>
+	</div>
+<?php endif; ?>
+
 
 <div class="sf_admin_login-container">
 	<div class="sf_admin_login-cont">

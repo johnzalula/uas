@@ -105,7 +105,7 @@ class sessionActions extends sfActions
 		$this->getUser()->clearCredentials();
 		$this->getResponse()->setCookie('autologin', 0, 0);
 		$this->getUser()->setFlash('notice', 'See you again soon!');
-		$this->redirect('@login');
+		$this->redirect('@homepage');
   } 
   public function executeComment(sfWebRequest $request){
      $this->redirect('@comment');

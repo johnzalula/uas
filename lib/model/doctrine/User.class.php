@@ -211,12 +211,12 @@ class User extends BaseUser {
         return null;
     }
 
-    // public function getCredential()
-    // {
-    //         if(in_array($this->login,sfConfig::get('app_admin'))) return 'admin';
-    //         if(in_array($this->login,sfConfig::get('app_secretary'))) return 'secretary' ;
-    //         return null;
-    // }
+     public function getCredential()
+     {
+             if(in_array($this->login,sfConfig::get('app_admin'))) return 'admin';
+             if(in_array($this->login,sfConfig::get('app_secretary'))) return 'secretary' ;
+             return null;
+     }
 
     public function listDelete() {
         $this->delete();
@@ -226,7 +226,7 @@ class User extends BaseUser {
 	$ldap = new LDAP();
 	$ldap->delete_user($this);
 
-	parent::delete();
+		parent::delete();
     }
 
     public function getLoginName($email_address) {

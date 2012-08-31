@@ -27,38 +27,64 @@ class registerActions extends sfActions
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod('post'));
+
+	$this->forward404Unless($request->isMethod(sfRequest::POST));
 
     $this->form = new RegisterUserForm();
 
-    if($this->processForm($request, $this->form)){
-    
-        if($this->user->getGeneratedPassword()){
-            $this->getUser()->setFlash('generated_pass', $this->user->getGeneratedPassword());
-            $this->getUser()->setAuthenticated(true);
-            $this->getUser()->setAttribute('user_id' , $this->user->getId());     
-            $this->getUser()->setFlash('notice', 'Welcome'. ' ' . $this->user);
-            $this->redirect('user/show?id='.$this->user->getId());
-	    } else {
-		    $this->getUser()->setFlash('notice', 'Error in form');
-	        $this->setTemplate('new'); // don't render createSuccess.php, but newSuccess.php
-    	}
-	}
-	$this->setTemplate('new');
+    $this->processForm($request, $this->form);
+
+    $this->setTemplate('new');
+
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
 
-    if ($form->isValid())
-    {
-        $this->user = $form->save();
-        $this->user->setStatus('preregistered');
-        $this->user->save();
-        return true;
-    } else {
-        return false;
+    	if ($form->isValid())
+    	{
+			//if($this->user->getGeneratedPassword()){
+          //  $this->getUser()->setFlash('generated_pass', $this->user->getGeneratedPassword());
+				
+				$new_user = new User();
+				//$generate_pass = $new_user->getGeneratedPassword();
+            //$this->getUser()->setAttribute('user_id' , $this->user->getId());				
+            //$this->getUser()->setAttribute('user_id' , $this->user->getId()); 
+				
+				
+            //$this->getUser()->setFlash('notice', 'Welcome'. ' ' . $this->user);
+
+				$password = new Password();
+				//$this->user->setPasswordObject($password);
+	
+			 // Flash message
+			 
+			 //$this->user->save();
+			 //$this->getUser()->setFlash('generated_pass', $generated_pass);
+            
+	    
+			  	$this->user = $form->save();
+			  	$this->user->setStatus('preregistered');
+			  	$this->user->setPasswordObject($password);
+
+				$generated_pass = $password->getPassword();
+
+			  	$this->user->save();
+				
+    			$this->getUser()->setFlash('generated_pass', $generated_pass);
+            $this->getUser()->setAuthenticated(true);
+				$this->getUser()->setAttribute('uid', $this->user->id);
+				$this->getUser()->setAttribute('login_name', $this->user->login);
+				$this->getUser()->setAttribute('full_name', $this->user->getFullName());
+				$this->getUser()->setAttribute('first_name', $this->user->name);
+				$this->getUser()->setAttribute('email_local_part', $this->user->email_local_part);
+				$this->getUser()->setAttribute('email_address', $this->user->getEmailAddress());    
+
+			$this->getUser()->setFlash('welcome_notice_success', true);
+			$this->redirect('user/show?id='.$this->user->id.'&user_mail='.$this->user->email_local_part);
+    	} 
+		//} 
 	}
-  }
+  
 }

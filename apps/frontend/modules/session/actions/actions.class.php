@@ -57,13 +57,13 @@ class sessionActions extends sfActions
 		   		}
 
 				$this->getUser()->signIn($user);
-				//$this->redirect('home/index');
+				
 
 					$password_update = new Password($password);
 		   		$user->setPasswordObject($password_update);
 					$user->save();
 
-					//$this->getUser()->setAuthenticated(true);
+					
 					$this->getUser()->setFlash('notice', 'Welcome'. ' ' . $user->getLogin());
 					$this->redirect('user/show?id='.$user->getId());
 	   	 }
@@ -71,41 +71,19 @@ class sessionActions extends sfActions
 				{
 					$this->getUser()->setAuthenticated(false);
 					$this->getUser()->setFlash('login_failure_notice', true);
-					$pass = crypt($password, sfConfig::get('app_crypt_salt'));
-					$this->getUser()->setAttribute('user_login', $username);
-					$this->getUser()->setAttribute('user_passw', $password);
-					$this->getUser()->setAttribute('user_pass', $pass);
-					//$this->getUser()->setAttribute('login' , $username);
-					//$this->getUser()->setAttribute('password' , $password);
-					//$this->form = $form;
-					//$this->setTemplate('login');
+
 					$this->forward('session', 'login');
-	    		}		  
-			//$user = UserTable::getUserFromLogin($login);
-			
-			// set the session correctly
-	//	}
-	 //  else
-	//	{
-	//		$this->form = $form;
-	//		$this->setTemplate('login');
-	//	}*/
-		//}
+	    		}	
 	}
 
- // public function executeLogin(sfWebRequest $request)
-  //{
-//	$this->getUser()->setAuthenticated(false);
-		
- // }
-
-  public function executeLogout(sfWebRequest $request)
+  public function executeSignout(sfWebRequest $request)
   {
 		$this->getUser()->setAuthenticated(false);
+		$this->getUser()->setAttribute('id', null);
 		$this->getUser()->clearCredentials();
 		$this->getResponse()->setCookie('autologin', 0, 0);
 		$this->getUser()->setFlash('notice', 'See you again soon!');
-		$this->redirect('@homepage');
+		$this->redirect('session/login');
   } 
   public function executeComment(sfWebRequest $request){
      $this->redirect('@comment');

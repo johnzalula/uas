@@ -177,15 +177,6 @@ abstract class BaseUser extends sfDoctrineRecord
              ));
 
 
-        $this->index('name', array(
-             'fields' => 
-             array(
-              0 => 'name',
-              1 => 'fathers_name',
-              2 => 'grand_fathers_name',
-             ),
-             'type' => 'unique',
-             ));
         $this->index('email_address', array(
              'fields' => 
              array(

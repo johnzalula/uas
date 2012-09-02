@@ -91,7 +91,8 @@
 					<li><a href="<?php echo url_for('user/show?id='.$sf_user->getAttribute('uid')) ?>">Home</a></li><?php endif; ?>
 					<li><a href="http://www.mu.edu.et">MU Site</a></li>
 					<li><a href="https://mail.mu.edu.et">MU Mail</a></li>
-				</ul>
+					<li><a href="<?php echo url_for('find_login/index') ?>">Find User Login</a></li>
+					</ul>
 			</div>
 			
 			<div class="profileNav">
@@ -114,6 +115,9 @@
 						</ul>
 					</li>
 					<li><?php echo link_to('Logout', '@logout') ?></li>
+					<?php endif; ?>
+					<?php if(!$sf_user->isAuthenticated()): ?>
+					<li><?php echo link_to('Login', '@login') ?></li>
 					<?php endif; ?>
 				</ul>
 			</div>

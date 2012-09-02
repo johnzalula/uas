@@ -107,8 +107,8 @@ class User extends BaseUser {
 	$extend = time() + sfConfig::get('app_account_extend_days') * 86400;
         $this->setExpiresAt(date("Y-m-d H:i:s", $extend));
 
-	$ldap = new LDAP();
-	$ldap->update_user($this);
+	//$ldap = new LDAP();
+//	$ldap->update_user($this);
 
         return parent::save();
     }
@@ -218,7 +218,7 @@ class User extends BaseUser {
              return null;
      }
 
-    public function listDelete() {
+ /*   public function listDelete() {
         $this->delete();
     }
 
@@ -227,7 +227,7 @@ class User extends BaseUser {
 	$ldap->delete_user($this);
 
 		parent::delete();
-    }
+    }*/
 
     public function getLoginName($email_address) {
         $a = explode("@", $email_address);

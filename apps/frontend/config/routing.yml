@@ -1,5 +1,17 @@
 # default rules
 
+search_login:
+  url: /find_login/show
+  class: sfDoctrineRoute
+  options:
+    model: User
+    type: object
+  param: { module: find_login, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
 new_user_identification:
   url: /user/identification/new
   class: sfDoctrineRoute
@@ -138,7 +150,7 @@ signin:
 
 logout:
   url: /signout
-  param: { module: session, action: logout }
+  param: { module: session, action: signout }
 
 homepage:
   url:   /

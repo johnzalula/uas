@@ -134,6 +134,29 @@ class UserTable extends Doctrine_Table
         return null;
     }
 
+
+	public function getUserByEmail($email)
+	{
+		if(($email == null))
+		{
+			return null;
+		}
+		
+			$user = Doctrine_Query::create()
+						->from('User u')
+						->where('u.email_local_part=?',
+										array($email))
+						->fetchOne();
+
+		if($user) 
+		{
+
+			return $user;
+		}
+
+		return null;
+	}
+
 	public function getUserStatus($user_status)
     {
 			

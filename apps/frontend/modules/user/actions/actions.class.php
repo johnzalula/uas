@@ -18,8 +18,8 @@ class userActions extends sfActions
 	}
 	public function executeShow(sfWebRequest $request)
 	{
-		//if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('user'))
-		//{
+		if($this->getUser()->isAuthenticated() )
+		{
 			$current_id = $this->getUser()->getAttribute('uid');
 			$requested_id= $request->getParameter('id');
 
@@ -33,11 +33,11 @@ class userActions extends sfActions
 				$this->getUser()->setFlash('notice', 'Please View Your Details Only!');       
 				$this->redirect('user/show?id='.$current_id);
 			}
-		//}
-	//	else
-		//{
-		//	$this->redirect('@login');
-		//}
+		}
+		else
+		{
+			$this->redirect('@login');
+		}
 	}
 	public function executeEdit(sfWebRequest $request)
 	{

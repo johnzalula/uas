@@ -14,7 +14,7 @@
 	<div class="loginError">
 		<div class="alert alert-success">
 			<a class="close" data-dismiss="alert">&times;</a>
-			Welcome <strong><?php echo $sf_user->getAttribute('full_name') ?></strong> you have succeffuly registered! your password is ( <strong><span class="pass"><?php echo $sf_user->getFlash('generated_pass') ?></span></strong> ). pleas change yout password now!
+			Welcome <strong><?php echo $sf_user->getAttribute('full_name') ?></strong> you have succeffuly registered! your password is  <strong><span class="pass"><?php echo $sf_user->getFlash('generated_pass') ?></span></strong> . please change your password now!
 		</div>
 	</div>
 <?php endif; ?>
@@ -57,16 +57,18 @@
 			<div class="userInfo-Box">
 
 			<fieldset>
-				<legend>Account information</legend>
+				<legend>Account information<?php if($sf_user->isAuthenticated()): ?>  <?php echo "allowed"?><?php else: ?><?php echo "not allowed" ?><?php endif; ?></legend>
 				<div class="userList">
 					<ul>
 						<li><span class="userInfo">Full name:</span><span class="userData"><?php echo $user->getFullName() ?></span></li>
 						<li><span class="userInfo">Login:</span><span class="userData"><?php echo $user->getLogin() ?></span></li>
-						<li><span class="userInfo">ID No:</span><span class="userData">
+						<li><span class="userInfo">ID No:</span><span class="userData">[ <i>
+						<?php if($user->getUserIdentifications()!=null): ?>
 		<?php foreach( $user->getUserIdentifications() as $useridentity ): ?>
-<?php echo '[ '.'<i>'. $useridentity->getIdentificationType() .'</i>'.' => '. $useridentity->getIdentification().' ]' ?>
+<?php echo $useridentity->getIdentificationType() . $useridentity->getIdentification() ?>
 		<?php endforeach; ?>
-			</span></li>
+					<?php endif; ?>
+			</i> ]</span></li>
 						<li><span class="userInfo">Status:</span><span class="userData"><?php echo $user->getStatus() ?></span></li>
 						<li><span class="userInfo">Expires at:</span><span class="userData"><?php echo $user->getExpiresAt() ?></span></li>
 					</ul>

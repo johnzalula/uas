@@ -27,6 +27,8 @@
 					<li><a href="<?php echo url_for('user/show?id='.$sf_user->getAttribute('uid')) ?>">Home</a></li><?php endif; ?>
 					<li><a href="http://www.mu.edu.et">MU Site</a></li>
 					<li><a href="https://mail.mu.edu.et">MU Mail</a></li>
+					<li><a href="<?php echo url_for('find_login/index') ?>">Find Login</a></li>
+				
 				</ul>
 			</div>
 

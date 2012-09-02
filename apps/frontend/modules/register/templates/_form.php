@@ -15,8 +15,16 @@
 	<div class="userInfo-Box">
 
 		<fieldset>
-			<legend class="info">Account information</legend>
+			<legend class="info">New User Registration</legend>
 			<div class="userList">
+				<?php if ($form->hasErrors()):?>
+					<div id="messageLayer">					
+						<div class="alert alert-error">
+							<a class="close" data-dismiss="alert">&times;</a>
+							<?php include_partial('global/error_message', array('form'=>$form));?>
+						</div>
+					</div>
+				<?php endif; ?>
 				<ul>
 					<li>
 						<span class="userInfo"><?php echo $form['name']->renderLabel() ?></span>

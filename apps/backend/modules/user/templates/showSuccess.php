@@ -65,7 +65,7 @@
 </div>
 <?php endif; ?>
 
-<?php if ($sf_user->getFlash('delete.success', 0) != 0):?>
+<?php if ($sf_user->getFlash('deleted.success', 0) != 0):?>
 <div id="messageLayer">
 	<div class="alert alert-success">
 		<a class="close" data-dismiss="alert">&times;</a>
@@ -74,9 +74,10 @@
 </div>
 <?php endif; ?>
  
+ 
 <div class="sf_admin_userPanel">
 	<div class="sf_admin_userHeader">
-	<h1><?php echo ucfirst($sf_request->getParameter('user_status')) ?> Users </h1>
+	<h1><?php echo ucwords(str_replace("_", " ", $sf_request->getParameter('user_status'))) ?> <?php if($sf_request->getParameter('user_status') != 'all_users'): echo "Users"; endif; ?> </h1>
 		<?php include_partial('global/topMenu');?>
 	</div>
 	<div class="sf_admin_userContent">
@@ -93,12 +94,12 @@
 						
 						<li class="display_list" id="display">Display: # 
 						<select onclick="<?php echo url_for('@show_user') ?>" name="pagesize" class="selspan" id="pagesize">
-                <option value="5" <?php echo $sf_request->getParameter('pagesize', 5) == 5? 'selected' : '';?>>5</option>
-                <option value="10" <?php echo $sf_request->getParameter('pagesize', 5) == 10? 'selected' : '';?>>10</option>
-                <option value="15" <?php echo $sf_request->getParameter('pagesize', 5) == 15? 'selected' : '';?>>15</option>
-                <option value="20" <?php echo $sf_request->getParameter('pagesize', 5) == 20? 'selected' : '';?>>20</option>
-                <option value="25" <?php echo $sf_request->getParameter('pagesize', 5) == 25? 'selected' : '';?>>25</option>
-                <option value="30" <?php echo $sf_request->getParameter('pagesize', 5) == 30? 'selected' : '';?>>30</option>
+                
+                <option value="10" <?php echo $sf_request->getParameter('pagesize', 10) == 10? 'selected' : '';?>>10</option>
+                <option value="15" <?php echo $sf_request->getParameter('pagesize', 10) == 15? 'selected' : '';?>>15</option>
+                <option value="20" <?php echo $sf_request->getParameter('pagesize', 10) == 20? 'selected' : '';?>>20</option>
+                <option value="25" <?php echo $sf_request->getParameter('pagesize', 10) == 25? 'selected' : '';?>>25</option>
+                <option value="30" <?php echo $sf_request->getParameter('pagesize', 10) == 30? 'selected' : '';?>>30</option>
             </select>	
 						<input type="hidden" name="user_status" value="<?php echo $sf_request->getParameter('user_status') ?>" >	
 						

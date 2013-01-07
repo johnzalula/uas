@@ -13,18 +13,19 @@
 
 	<?php echo $form->renderGlobalErrors() ?>
 	<div class="userInfo-Box">
+		
+		<?php if ($form->hasErrors()):?>
+			<div id="messageLayer">					
+				<div class="alert alert-error">
+					<a class="close " data-dismiss="alert">&times;</a>
+					<?php include_partial('global/error_message', array('form'=>$form));?>
+				</div>
+			</div>
+		<?php endif; ?>
 
 		<fieldset>
 			<legend class="info">New User Registration</legend>
 			<div class="userList">
-				<?php if ($form->hasErrors()):?>
-					<div id="messageLayer">					
-						<div class="alert alert-error">
-							<a class="close" data-dismiss="alert">&times;</a>
-							<?php include_partial('global/error_message', array('form'=>$form));?>
-						</div>
-					</div>
-				<?php endif; ?>
 				<ul>
 					<li>
 						<span class="userInfo"><?php echo $form['name']->renderLabel() ?></span>
@@ -42,16 +43,16 @@
 						<span class="userInfo"><?php echo $form['grand_fathers_name']->renderLabel() ?></span>
 						<span class="userData"><?php echo $form['grand_fathers_name'] ?></span></li>
 							<?php if($form['grand_fathers_name']->hasError()): ?>
-					<li><?php echo $form['grand_fathers_name']->renderError() ?></li>
+					<li class="errorDisplay"><?php echo $form['grand_fathers_name']->renderError() ?></li>
 							<?php endif; ?>
 					<li>
 						<span class="userInfo"><?php echo $form['phone']->renderLabel() ?></span>
-						<span class="userData"><?php echo $form['phone'] ?></span></li>
+						<span class="userData"><?php echo $form['phone'] ?> &nbsp;&nbsp;<span class="phoneEg">( eg. +251912334455 )</span></span></li>
 							<?php if($form['phone']->hasError()): ?>
-					<li><?php echo $form['phone']->renderError() ?></li>
+					<li> <?php echo $form['phone']->renderError() ?></li>
 							<?php endif; ?>
 					<li><span class="userInfo"><?php echo $form['alternate_email']->renderLabel() ?></span>
-						<span class="userData"><?php echo $form['alternate_email'] ?></span></li>
+						<span class="userData"><?php echo $form['alternate_email'] ?><span class="phoneEg">&nbsp;&nbsp;( eg. emailaccount@domainname.com )</span></span></li>
 							<?php if($form['alternate_email']->hasError()): ?>
 					<li><?php echo $form['alternate_email']->renderError() ?></li>
 							<?php endif; ?>	

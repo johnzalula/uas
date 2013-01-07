@@ -6,7 +6,7 @@
     <body>
       <trans-unit id="1">
         <source>English</source>
-        <target >ኢንግሊዘኛ</target>
+        <target >ኢንግሊዘኛ </target>
       </trans-unit>
       <trans-unit id="2">
         <source>Tigrigna</source>

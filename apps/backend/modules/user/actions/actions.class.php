@@ -20,15 +20,15 @@ class userActions extends autoUserActions
 			$this->forward('user', 'listShow');
 	}
 */
-	///public function executeIndex(sfWebRequest $request)
-	//{
-	//}
+	 
 
 	public function executeShow(sfWebRequest $request)
 	{
+		$users = Doctrine_Core::getTable('User')->findAll();
+
 		if($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('admin'))
 		{
-			$pagesize = $request->getParameter('pagesize', 5);
+			$pagesize = $request->getParameter('pagesize', 10);
 
 			$status = $request->getParameter('user_status');
 
@@ -100,26 +100,28 @@ class userActions extends autoUserActions
 		if(!empty($ids)) {
         $query = Doctrine_Query::create()
                     ->update('User u');
-							
 
         switch ($request->getParameter('groupaction')) {
-            case 'Disactivate': $query->set('status', '?','disactivated'); 
+            case 'Disactivate': $query->set('status', '?','disactivated');
+							$query->whereIn('u.id', $ids);
+				   		$query->execute(); 
 							$this->getUser()->setFlash('disactivated.success', 1);
 						break;
-            case 'Activate': $query->set('status', '?', 'activated'); 
+            case 'Activate': $query->set('status', '?', 'activated');
+							$query->whereIn('u.id', $ids);
+				   		$query->execute(); 
 							$this->getUser()->setFlash('activated.success', 1);
 						break;
-            case 'Delete': $query->set('deleted_at', '?', date('Y-m-d H:i:s')); 
+            case 'Delete': $deleted = Doctrine_Query::create()->delete()->from('User u')->whereIn('u.id', $ids); 
+				   		$deleted->execute();
 							$this->getUser()->setFlash('deleted.success', 1);
+							$this->redirect('user/show?user_status='.$user_status);
 						break;
 				default:
 						$this->getUser()->setFlash('select.error', 1);
 						$this->redirect('user/show?user_status='.$user_status);
 						break;
         			}
-
-				   $query->whereIn('u.id', $ids);
-				   $query->execute();
 				}
 				else {
 					$this->getUser()->setFlash('selectfield.error', 1);

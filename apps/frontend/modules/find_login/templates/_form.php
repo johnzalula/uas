@@ -30,7 +30,7 @@
 	<div class="userDetail-actions">
 		<ul>
 			<li><?php echo $form->renderHiddenFields() ?>
-       &nbsp;<a href="<?php echo url_for('find_login/show?'); ?>">Cancel</a></li>
+       &nbsp;<a href="<?php echo url_for('session/login?'); ?>">Cancel</a></li>
 			<li><button type="submit" class="btn btn-primary"><?php echo ucfirst("Search Login") ?></button></li>
 			
 		</ul>

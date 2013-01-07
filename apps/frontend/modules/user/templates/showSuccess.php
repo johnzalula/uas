@@ -65,7 +65,7 @@
 						<li><span class="userInfo">ID No:</span><span class="userData">[ <i>
 						<?php if($user->getUserIdentifications()!=null): ?>
 		<?php foreach( $user->getUserIdentifications() as $useridentity ): ?>
-<?php echo $useridentity->getIdentificationType() . $useridentity->getIdentification() ?>
+<?php echo ucfirst(str_replace("_", " ", $useridentity->getIdentificationType())) . ' : '.$useridentity->getIdentification() ?>
 		<?php endforeach; ?>
 					<?php endif; ?>
 			</i> ]</span></li>

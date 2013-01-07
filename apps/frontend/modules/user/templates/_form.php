@@ -14,7 +14,7 @@
 </div>
 
 		<?php echo $form->renderGlobalErrors() ?>
-		<div class="userInfo-Box">
+		<div class="userInfo-Box"> 
 
 		<fieldset>
 			<legend>Account information</legend>

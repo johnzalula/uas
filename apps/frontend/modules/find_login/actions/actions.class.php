@@ -48,6 +48,7 @@ class find_loginActions extends sfActions
 					$this->getUser()->setFlash('search.success', true);
 					$this->redirect('find_login/show?id='.$user->id);
 					
+					
 				}
 				else
 				{

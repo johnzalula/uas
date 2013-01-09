@@ -115,7 +115,7 @@ class userActions extends autoUserActions
             case 'Delete': $deleted = Doctrine_Query::create()->delete()->from('User u')->whereIn('u.id', $ids); 
 				   		$deleted->execute();
 							$this->getUser()->setFlash('deleted.success', 1);
-							$this->redirect('user/show?user_status='.$user_status);
+							//$this->redirect('user/show?user_status='.$user_status);
 						break;
 				default:
 						$this->getUser()->setFlash('select.error', 1);

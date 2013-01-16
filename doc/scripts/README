@@ -1,0 +1,15 @@
+This uas-ldap-sync.php script checks the UAS and LDAP for synchronisation errors.
+
+For example if the LDAP server went down and the UAS was not able to push it's data to the server this script will notice it and push the 
+user to LDAP.
+
+This script works using LDAP and UAS modification timestamps, and they need to be therefor in time sync. If you are using different servers please use NTP. 
+Ideally this script works best when the UAS / MySQL and LDAP are installed on the same server.
+
+You could execute this script as any user using the crontab.
+
+For example run it every hour. 
+
+0 * * * * php /path/to/file/uas-ldap-sync.php
+
+Make sure your email is set in the alias file on the server so you get notified of any errors.
